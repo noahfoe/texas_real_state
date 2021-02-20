@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Texas Real State'),
+      home: MyHomePage(title: 'Texas Real State Home'),
     );
   }
 }
