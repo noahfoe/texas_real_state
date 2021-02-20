@@ -50,6 +50,23 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: Drawer(
         child: Column(
           children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("User Name"),
+              accountEmail: Text("user@email.com"),
+              currentAccountPicture: CircleAvatar(child: Text('U')),
+              otherAccountsPictures: <Widget>[
+                GestureDetector(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                                title: Text("Adding new acount..."));
+                          });
+                    },
+                    child: CircleAvatar(child: Icon(Icons.add)))
+              ],
+            ),
             Padding(
               padding: EdgeInsets.all(10),
             ),
@@ -85,8 +102,15 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.add_call),
               title: Text("Contact Us"),
             ),
-            Padding(
-              padding: EdgeInsets.all(170),
+            Divider(),
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text("Settings"),
+                ),
+              ),
             ),
             Text("© 2021 Texas Real State")
           ],
