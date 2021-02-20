@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Texas Real State Home Page'),
+      home: MyHomePage(title: 'Texas Real State'),
     );
   }
 }
@@ -34,8 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset('img/txst-logo.png'),
         title: Text(widget.title),
+        actions: [Image.asset('img/txst-logo.png')],
       ),
       body: Center(
         child: Column(
@@ -44,6 +44,51 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'This is the homepage of Texas Real State',
             ),
+          ],
+        ),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_a_photo),
+              title: Text("Gallery"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              leading: Icon(Icons.event_available),
+              title: Text("Book an Appointment"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              leading: Icon(Icons.child_care),
+              title: Text("About Us"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_call),
+              title: Text("Contact Us"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(170),
+            ),
+            Text("© 2021 Texas Real State")
           ],
         ),
       ),
