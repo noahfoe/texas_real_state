@@ -33,89 +33,88 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [Image.asset('img/txst-logo.png')],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'This is the homepage of Texas Real State',
-            ),
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
+          actions: [Image.asset('img/txst-logo.png')],
         ),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text("User Name"),
-              accountEmail: Text("user@email.com"),
-              currentAccountPicture: CircleAvatar(child: Text('U')),
-              otherAccountsPictures: <Widget>[
-                GestureDetector(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                                title: Text("Adding new acount..."));
-                          });
-                    },
-                    child: CircleAvatar(child: Icon(Icons.add)))
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            ListTile(
-              leading: Icon(Icons.add_a_photo),
-              title: Text("Gallery"),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            ListTile(
-              leading: Icon(Icons.event_available),
-              title: Text("Book an Appointment"),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            ListTile(
-              leading: Icon(Icons.child_care),
-              title: Text("About Us"),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            ListTile(
-              leading: Icon(Icons.add_call),
-              title: Text("Contact Us"),
-            ),
-            Divider(),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text("Settings"),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'This is the homepage of Texas Real State',
+              ),
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          child: Column(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text("User Name"),
+                accountEmail: Text("user@email.com"),
+                currentAccountPicture: CircleAvatar(child: Text('U')),
+                otherAccountsPictures: <Widget>[
+                  GestureDetector(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                  title: Text("Adding new acount..."));
+                            });
+                      },
+                      child: CircleAvatar(child: Icon(Icons.add)))
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              ListTile(
+                leading: Icon(Icons.add_a_photo),
+                title: Text("Gallery"),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              ListTile(
+                leading: Icon(Icons.event_available),
+                title: Text("Book an Appointment"),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              ListTile(
+                leading: Icon(Icons.child_care),
+                title: Text("About Us"),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+              ),
+              ListTile(
+                leading: Icon(Icons.add_call),
+                title: Text("Contact Us"),
+              ),
+              Divider(),
+              Expanded(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                  ),
                 ),
               ),
-            ),
-            Text("© 2021 Texas Real State")
-          ],
-        ),
-      ),
-    );
+              Text("© 2021 Texas Real State")
+            ],
+          ),
+        ));
   }
 }
