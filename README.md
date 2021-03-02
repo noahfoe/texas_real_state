@@ -1,4 +1,4 @@
-# real_texas_state
+# texas_real_state
 
 A new Flutter project.
 
