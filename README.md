@@ -1,16 +1,7 @@
 # texas_real_state
+* A Flutter project created by 3 other Texas State students and myself for our Software Engineering Project class.
+* This will be a real estate app called Texas Real State.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# What We Learned
+* Teamwork/Collaboration
+* Flutter
