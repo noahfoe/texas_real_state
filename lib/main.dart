@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  MyHomePage({Key? key, this.title}) : super(key: key);
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -40,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read(fragmentProvider).state = _homePage;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      context.read(fragmentProvider).state = _homePage as Container;
     });
   }
 
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
         actions: [Image.asset('img/txst-logo.png')],
       ),
       drawer: Drawer(
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.home),
               title: Text("Home"),
               onTap: () {
-                context.read(fragmentProvider).state = _homePage;
+                context.read(fragmentProvider).state = _homePage as Container;
                 Navigator.pop(context);
               },
             ),
@@ -90,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.add_a_photo),
               title: Text("Gallery"),
               onTap: () {
-                context.read(fragmentProvider).state = _galleryPage;
+                context.read(fragmentProvider).state =
+                    _galleryPage as Container;
                 Navigator.pop(context);
               },
             ),
@@ -101,7 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.event_available),
               title: Text("Book an Appointment"),
               onTap: () {
-                context.read(fragmentProvider).state = _bookAppPage;
+                context.read(fragmentProvider).state =
+                    _bookAppPage as Container;
                 Navigator.pop(context);
               },
             ),
@@ -112,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.child_care),
               title: Text("About Us"),
               onTap: () {
-                context.read(fragmentProvider).state = _aboutUsPage;
+                context.read(fragmentProvider).state =
+                    _aboutUsPage as Container;
                 Navigator.pop(context);
               },
             ),
@@ -123,7 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.add_call),
               title: Text("Contact Us"),
               onTap: () {
-                context.read(fragmentProvider).state = _contactUsPage;
+                context.read(fragmentProvider).state =
+                    _contactUsPage as Container;
                 Navigator.pop(context);
               },
             ),
@@ -135,7 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   leading: Icon(Icons.settings),
                   title: Text("Settings"),
                   onTap: () {
-                    context.read(fragmentProvider).state = _settingsPage;
+                    context.read(fragmentProvider).state =
+                        _settingsPage as Container;
                     Navigator.pop(context);
                   },
                 ),
