@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Texas Real State App'),
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:real_texas_state/state/fragment_state.dart';
+import 'package:real_texas_state/pages/aboutUs/about.dart';
+import 'package:real_texas_state/pages/bookAppointment/appointment.dart';
+import 'package:real_texas_state/pages/contactUs/contact.dart';
+import 'package:real_texas_state/pages/gallery/gallery.dart';
+import 'package:real_texas_state/pages/home/home.dart';
+import 'package:real_texas_state/pages/settings/settings.dart';
 
 class MyDrawer extends StatefulWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -10,18 +14,11 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-  Widget _homePage = _page(Colors.white, "Home");
-  Widget _galleryPage = _page(Colors.white, "Gallery");
-  Widget _bookAppPage = _page(Colors.white, "Book An Appointment");
-  Widget _aboutUsPage = _page(Colors.white, "About Us");
-  Widget _contactUsPage = _page(Colors.white, "Contact Us");
-  Widget _settingsPage = _page(Colors.white, "Settings");
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      context.read(fragmentProvider).state = _homePage as Container;
+      MaterialPageRoute(builder: (context) => new MyHomePage());
     });
   }
 
@@ -54,8 +51,9 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () {
-              context.read(fragmentProvider).state = _homePage as Container;
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => new MyHomePage()));
+              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -65,8 +63,9 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.add_a_photo),
             title: Text("Gallery"),
             onTap: () {
-              context.read(fragmentProvider).state = _galleryPage as Container;
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => new MyGalleryPage()));
+              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -76,8 +75,11 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.event_available),
             title: Text("Book an Appointment"),
             onTap: () {
-              context.read(fragmentProvider).state = _bookAppPage as Container;
-              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new MyAppointmentPage()));
+              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -87,8 +89,9 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.child_care),
             title: Text("About Us"),
             onTap: () {
-              context.read(fragmentProvider).state = _aboutUsPage as Container;
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => new MyAboutPage()));
+              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -98,9 +101,9 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.add_call),
             title: Text("Contact Us"),
             onTap: () {
-              context.read(fragmentProvider).state =
-                  _contactUsPage as Container;
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => new MyContactPage()));
+              //Navigator.pop(context);
             },
           ),
           Divider(),
@@ -111,9 +114,11 @@ class _MyDrawerState extends State<MyDrawer> {
                 leading: Icon(Icons.settings),
                 title: Text("Settings"),
                 onTap: () {
-                  context.read(fragmentProvider).state =
-                      _settingsPage as Container;
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => new MySettingsPage()));
+                  //Navigator.pop(context);
                 },
               ),
             ),
@@ -123,18 +128,4 @@ class _MyDrawerState extends State<MyDrawer> {
       ),
     );
   }
-}
-
-_page(Color color, String title) {
-  return Container(
-    height: double.infinity,
-    width: double.infinity,
-    color: color,
-    child: Center(
-      child: Text(
-        '$title',
-        style: TextStyle(fontSize: 30, color: Colors.black),
-      ),
-    ),
-  );
 }

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
-import 'package:real_texas_state/state/fragment_state.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-  final String? title;
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -18,11 +15,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: MyDrawer(),
-      body: Consumer(
-        builder: (context, watch, _) {
-          final body = watch(fragmentProvider).state;
-          return body;
-        },
+      body: Stack(
+        children: [
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: Colors.white,
+            child: Center(
+              child: Text(
+                'Home',
+                style: TextStyle(fontSize: 30, color: Colors.black),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
