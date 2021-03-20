@@ -1,7 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
+
+import 'location/location_provider.dart';
 
 class MyGoogleMap extends StatefulWidget {
   @override
@@ -11,22 +13,34 @@ class MyGoogleMap extends StatefulWidget {
 class _MyGoogleMapState extends State<MyGoogleMap> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
 
-  // Here is where starting location is coming from
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
-
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-      mapType: MapType.normal,
-      myLocationButtonEnabled: true,
-      initialCameraPosition:
-          _kGooglePlex, // Need to change this to users current location
-      onMapCreated: (GoogleMapController controller) {
-        _controllerGoogleMap.complete(controller);
-      },
-    );
+    return Consumer<LocationProvider>(builder: (consumerContext, model, child) {
+      if (model.locationPosition != null) {
+        return Column(
+          children: [
+            Expanded(
+              child: GoogleMap(
+                mapType: MapType.normal,
+                initialCameraPosition: CameraPosition(
+                  target: model.locationPosition,
+                  zoom: 14.4746,
+                ),
+                myLocationEnabled: true,
+                myLocationButtonEnabled: true,
+                onMapCreated: (GoogleMapController controller) {
+                  _controllerGoogleMap.complete(controller);
+                },
+              ),
+            ),
+          ],
+        );
+      }
+      return Container(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    });
   }
 }

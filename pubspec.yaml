@@ -21,16 +21,18 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  provider:
   flutter:
     sdk: flutter
-  flutter_riverpod: ^0.13.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  flutter_riverpod: ^0.13.1
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0
   introduction_screen: ^2.0.0
   google_maps_flutter: ^2.0.1
+  location: ^4.1.1
 
 # Google Map API Key - AIzaSyDWVLiaoab7t0JJ-oEyFwIWAU6cBgf0_qs
 
