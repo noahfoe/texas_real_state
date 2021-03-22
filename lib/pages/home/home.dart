@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: Colors.accents.map((color) {
-                return Container(height: 112, color: color);
+                return Container(height: 100, color: color);
               }).toList(),
             ),
           ),

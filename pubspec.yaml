@@ -35,8 +35,6 @@ dependencies:
   location: ^4.1.1
   material_floating_search_bar: ^0.3.3
 
-# Google Map API Key - AIzaSyDWVLiaoab7t0JJ-oEyFwIWAU6cBgf0_qs
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
