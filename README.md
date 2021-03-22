@@ -8,5 +8,5 @@
 * Riverpod for State Management
 
 # Screenshots
-![HomePage](screenshots/homePage.jpg)
-![HamburgerMenu](screenshots/hamburger_menu.jpg)
+![HomePage](screenshots/homePage.png)
+![HamburgerMenu](screenshots/hamburger_menu.png)
