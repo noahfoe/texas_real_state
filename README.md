@@ -6,3 +6,7 @@
 * Teamwork/Collaboration
 * Flutter
 * Riverpod for State Management
+
+# Screenshots
+![HomePage](homePage.jpg)
+![HamburgerMenu](hamburger_menu.jpg)
