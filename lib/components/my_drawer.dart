@@ -39,7 +39,7 @@ class _MyDrawerState extends State<MyDrawer> {
                         builder: (context) {
                           // TODO: Add Firebase for userAuth
                           return AlertDialog(
-                              title: Text("Adding new acount..."));
+                              title: Text("Adding new account..."));
                         });
                   },
                   child: CircleAvatar(child: Icon(Icons.add)))
