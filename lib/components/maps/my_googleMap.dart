@@ -20,6 +20,8 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
           children: [
             Expanded(
               child: GoogleMap(
+                myLocationButtonEnabled: false,
+                compassEnabled: false,
                 mapType: MapType.normal,
                 initialCameraPosition: CameraPosition(
                   target: model.locationPosition,
@@ -28,7 +30,6 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
                   bearing: 0,
                 ),
                 myLocationEnabled: true,
-                myLocationButtonEnabled: true,
                 onMapCreated: (GoogleMapController controller) {
                   _controllerGoogleMap.complete(controller);
                 },

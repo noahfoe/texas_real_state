@@ -37,6 +37,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     showDialog(
                         context: context,
                         builder: (context) {
+                          // TODO: Add Firebase for userAuth
                           return AlertDialog(
                               title: Text("Adding new acount..."));
                         });
@@ -53,7 +54,6 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => new MyHomePage()));
-              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -65,7 +65,6 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => new MyGalleryPage()));
-              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -79,7 +78,6 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyAppointmentPage()));
-              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -91,7 +89,6 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => new MyAboutPage()));
-              //Navigator.pop(context);
             },
           ),
           Padding(
@@ -103,7 +100,6 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => new MyContactPage()));
-              //Navigator.pop(context);
             },
           ),
           Divider(),
@@ -118,7 +114,6 @@ class _MyDrawerState extends State<MyDrawer> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => new MySettingsPage()));
-                  //Navigator.pop(context);
                 },
               ),
             ),

@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => LocationProvider(),
           child: MyHomePage(),
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Texas Real State',

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
+import 'package:real_texas_state/pages/bookAppointment/calender.dart';
 
 class MyAppointmentPage extends StatefulWidget {
   MyAppointmentPage({Key? key}) : super(key: key);
@@ -21,11 +22,8 @@ class _MyAppointmentPageState extends State<MyAppointmentPage> {
             height: double.infinity,
             width: double.infinity,
             color: Colors.white,
-            child: Center(
-              child: Text(
-                'Book an Appointment',
-                style: TextStyle(fontSize: 30, color: Colors.black),
-              ),
+            child: MyCalender(
+              title: 'Book an appointment',
             ),
           ),
         ],

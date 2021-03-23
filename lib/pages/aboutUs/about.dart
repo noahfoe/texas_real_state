@@ -22,9 +22,38 @@ class _MyAboutPageState extends State<MyAboutPage> {
             width: double.infinity,
             color: Colors.white,
             child: Center(
-              child: Text(
-                'About Us',
-                style: TextStyle(fontSize: 30, color: Colors.black),
+              child: Column(
+                children: [
+                  Text(
+                    'About Us',
+                    style: TextStyle(fontSize: 30, color: Colors.black),
+                  ),
+                  Padding(padding: EdgeInsets.all(10)),
+                  Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          'Texas Real State is developed by Texas State Students with Flutter.',
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                        ),
+                        Text(
+                          'The group memebers are: Noah Foley, Ryan Granado, Dillion Blankenship, and Tanner Harvey.',
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                        ),
+                        Text(
+                          'The name of the app is Texas Real State because we are from Texas State Univeristy and it is a Real Estate app.',
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

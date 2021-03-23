@@ -6,6 +6,7 @@
 * Teamwork/Collaboration
 * Flutter
 * Riverpod for State Management
+* Google API's for Maps
 
 # Screenshots
 ![HomePage](screenshots/homePage.PNG)

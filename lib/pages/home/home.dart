@@ -34,7 +34,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             MyGoogleMap(),
-            buildFloatingSearchBar(),
+            ListView(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Search Location...",
+                      suffixIcon: Icon(Icons.place),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            //buildFloatingSearchBar(),
           ],
         ),
       ),
@@ -46,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         MediaQuery.of(context).orientation == Orientation.portrait;
 
     return FloatingSearchBar(
-      hint: 'Search for different location...',
+      hint: 'Search location...',
       scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
       transitionDuration: const Duration(milliseconds: 800),
       transitionCurve: Curves.easeInOut,
@@ -55,11 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
       openAxisAlignment: 0.0,
       width: isPortrait ? 600 : 500,
       debounceDelay: const Duration(milliseconds: 500),
-      onQueryChanged: (query) {
-        // Call your model, bloc, controller here.
+      onQueryChanged: (value) {
+        // TODO: Call your model, bloc, controller here.
       },
-      // Specify a custom transition to be used for
-      // animating between opened and closed stated.
       transition: CircularFloatingSearchBarTransition(),
       actions: [
         FloatingSearchBarAction(
@@ -81,9 +92,30 @@ class _MyHomePageState extends State<MyHomePage> {
             elevation: 4.0,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: Colors.accents.map((color) {
-                return Container(height: 100, color: color);
-              }).toList(),
+              // TODO: Add a list of search history
+              children: [
+                Container(
+                  height: 300,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(.6),
+                    backgroundBlendMode: BlendMode.darken,
+                  ),
+                ),
+                Container(
+                  height: 300,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                          "",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         );

@@ -21,11 +21,39 @@ class _MyContactPageState extends State<MyContactPage> {
             height: double.infinity,
             width: double.infinity,
             color: Colors.white,
-            child: Center(
-              child: Text(
-                'Contact Us',
-                style: TextStyle(fontSize: 30, color: Colors.black),
-              ),
+            child: Column(
+              children: [
+                Text(
+                  'Contact Us',
+                  style: TextStyle(fontSize: 30, color: Colors.black),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Email: TexasRealState@gmail.com',
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        'Phone: 123-456-7890',
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        'Twitter: @TexasRealState',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        'Instagram: @TexasRealState',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
