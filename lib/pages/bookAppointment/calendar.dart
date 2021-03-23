@@ -5,16 +5,16 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
-class MyCalender extends StatefulWidget {
-  MyCalender({Key? key, required this.title}) : super(key: key);
+class MyCalendar extends StatefulWidget {
+  MyCalendar({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyCalenderState createState() => _MyCalenderState();
+  _MyCalendarState createState() => _MyCalendarState();
 }
 
-class _MyCalenderState extends State<MyCalender> {
+class _MyCalendarState extends State<MyCalendar> {
   DateTime _currentDate = DateTime(2021, 3, 22);
   String _currentMonth = DateFormat.yMMM().format(DateTime(2021, 3, 22));
   DateTime _targetDateTime = DateTime(2021, 3, 22);
