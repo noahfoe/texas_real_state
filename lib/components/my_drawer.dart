@@ -5,6 +5,8 @@ import 'package:real_texas_state/pages/contactUs/contact.dart';
 import 'package:real_texas_state/pages/gallery/gallery.dart';
 import 'package:real_texas_state/pages/home/home.dart';
 import 'package:real_texas_state/pages/settings/settings.dart';
+import 'package:real_texas_state/pages/loginPage/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyDrawer extends StatefulWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  final auth = FirebaseAuth.instance;
   @override
   void initState() {
     super.initState();
@@ -29,21 +32,8 @@ class _MyDrawerState extends State<MyDrawer> {
         children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: Text("User Name"),
-            accountEmail: Text("user@email.com"),
+            accountEmail: Text("UserName@email.com"),
             currentAccountPicture: CircleAvatar(child: Text('U')),
-            otherAccountsPictures: <Widget>[
-              GestureDetector(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          // TODO: Add Firebase for userAuth
-                          return AlertDialog(
-                              title: Text("Adding new account..."));
-                        });
-                  },
-                  child: CircleAvatar(child: Icon(Icons.add)))
-            ],
           ),
           Padding(
             padding: EdgeInsets.all(10),
@@ -106,15 +96,32 @@ class _MyDrawerState extends State<MyDrawer> {
           Expanded(
             child: Align(
               alignment: FractionalOffset.bottomCenter,
-              child: ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => new MySettingsPage()));
-                },
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => new MySettingsPage(),
+                        ),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Sign Out'),
+                    onPressed: () {
+                      auth.signOut();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => new MyLoginPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551688574155",
+    "project_id": "coral-balancer-308021",
+    "storage_bucket": "coral-balancer-308021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551688574155:android:789b6e0c39502b0d18774e",
+        "android_client_info": {
+          "package_name": "com.example.real_texas_state"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551688574155-35kuh88r4g2b3ne5glbg2f27a7app0ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEQkgMKTFm0CN2nIjKDb15vH8JWoV7-1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551688574155-35kuh88r4g2b3ne5glbg2f27a7app0ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

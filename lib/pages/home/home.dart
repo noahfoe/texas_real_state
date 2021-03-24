@@ -8,7 +8,6 @@ import 'package:real_texas_state/components/my_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -54,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // Currently using different search bar
   Widget buildFloatingSearchBar() {
     final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
