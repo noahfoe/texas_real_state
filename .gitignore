@@ -41,6 +41,6 @@ app.*.symbols
 app.*.map.json
 
 # API Keys Related
-#lib/components/maps/config_maps.dart
-#android/app/src/main/AndroidManifest.xml
-#ios/Runner/AppDelegate.swift
+lib/components/maps/config_maps.dart
+android/app/src/main/AndroidManifest.xml
+ios/Runner/AppDelegate.swift
