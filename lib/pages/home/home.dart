@@ -7,12 +7,16 @@ import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  late String email;
+  MyHomePage({required this.email, Key? key}) : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState(email: email);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late String email;
+  _MyHomePageState({required this.email});
+
   @override
   void initState() {
     super.initState();
@@ -26,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(email: email),
       body: Container(
         width: _screenWidth,
         height: _screenHeight,

@@ -82,7 +82,7 @@ class MyLoginPageState extends State<MyLoginPage> {
                             email: _email, password: _password);
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => new MyApp(),
+                            builder: (context) => new MyApp(email: _email),
                           ),
                         );
                       },
@@ -96,7 +96,7 @@ class MyLoginPageState extends State<MyLoginPage> {
                             email: _email, password: _password);
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => new MyApp(),
+                            builder: (context) => new MyApp(email: _email),
                           ),
                         );
                       },

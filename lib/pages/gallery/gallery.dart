@@ -3,18 +3,24 @@ import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
 
 class MyGalleryPage extends StatefulWidget {
-  MyGalleryPage({Key? key}) : super(key: key);
+  late String email;
+  MyGalleryPage({required this.email, Key? key}) : super(key: key);
 
   @override
-  _MyGalleryPageState createState() => _MyGalleryPageState();
+  _MyGalleryPageState createState() => _MyGalleryPageState(email: email);
 }
 
 class _MyGalleryPageState extends State<MyGalleryPage> {
+  late String email;
+  _MyGalleryPageState({required this.email});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(
+        email: email,
+      ),
       body: Stack(
         children: [
           Container(

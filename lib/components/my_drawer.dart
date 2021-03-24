@@ -9,19 +9,26 @@ import 'package:real_texas_state/pages/loginPage/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyDrawer extends StatefulWidget {
-  MyDrawer({Key? key}) : super(key: key);
+  late String email;
+  MyDrawer({required this.email, Key? key}) : super(key: key);
 
   @override
-  _MyDrawerState createState() => _MyDrawerState();
+  _MyDrawerState createState() => _MyDrawerState(email: email);
 }
 
 class _MyDrawerState extends State<MyDrawer> {
   final auth = FirebaseAuth.instance;
+  late String email;
+  _MyDrawerState({required this.email});
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      MaterialPageRoute(builder: (context) => new MyHomePage());
+      MaterialPageRoute(
+          builder: (context) => new MyHomePage(
+                email: email,
+              ));
     });
   }
 
@@ -32,7 +39,7 @@ class _MyDrawerState extends State<MyDrawer> {
         children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: Text("User Name"),
-            accountEmail: Text("UserName@email.com"),
+            accountEmail: Text(email),
             currentAccountPicture: CircleAvatar(child: Text('U')),
           ),
           Padding(
@@ -42,8 +49,12 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new MyHomePage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new MyHomePage(
+                            email: email,
+                          )));
             },
           ),
           Padding(
@@ -53,8 +64,12 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.add_a_photo),
             title: Text("Gallery"),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new MyGalleryPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new MyGalleryPage(
+                            email: email,
+                          )));
             },
           ),
           Padding(
@@ -67,7 +82,9 @@ class _MyDrawerState extends State<MyDrawer> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => new MyAppointmentPage()));
+                      builder: (context) => new MyAppointmentPage(
+                            email: email,
+                          )));
             },
           ),
           Padding(
@@ -77,8 +94,12 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.child_care),
             title: Text("About Us"),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new MyAboutPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new MyAboutPage(
+                            email: email,
+                          )));
             },
           ),
           Padding(
@@ -88,8 +109,12 @@ class _MyDrawerState extends State<MyDrawer> {
             leading: Icon(Icons.add_call),
             title: Text("Contact Us"),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new MyContactPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => new MyContactPage(
+                            email: email,
+                          )));
             },
           ),
           Divider(),
@@ -105,7 +130,9 @@ class _MyDrawerState extends State<MyDrawer> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => new MySettingsPage(),
+                          builder: (context) => new MySettingsPage(
+                            email: email,
+                          ),
                         ),
                       );
                     },

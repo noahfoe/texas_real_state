@@ -3,18 +3,22 @@ import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
 
 class MyAboutPage extends StatefulWidget {
-  MyAboutPage({Key? key}) : super(key: key);
+  late String email;
+  MyAboutPage({required this.email, Key? key}) : super(key: key);
 
   @override
-  _MyAboutPageState createState() => _MyAboutPageState();
+  _MyAboutPageState createState() => _MyAboutPageState(email: email);
 }
 
 class _MyAboutPageState extends State<MyAboutPage> {
+  late String email;
+  _MyAboutPageState({required this.email});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(email: email),
       body: Stack(
         children: [
           Container(
