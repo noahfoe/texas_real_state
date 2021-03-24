@@ -1,1 +1,1 @@
-String mapKey = "AIzaSyBWbglKOVUsYM1aAo6AqK64xgymsrvfne8";
+String mapKey = "API_KEY_GOES_HERE";
