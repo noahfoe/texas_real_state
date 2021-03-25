@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:real_texas_state/app.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
+import 'package:real_texas_state/pages/loginPage/reset.dart';
+import 'package:real_texas_state/pages/loginPage/verify.dart';
 
 class MyLoginPage extends StatefulWidget {
   @override
@@ -77,31 +80,30 @@ class MyLoginPageState extends State<MyLoginPage> {
                   Builder(
                     builder: (context) => ElevatedButton(
                       child: Text('Sign In'),
-                      onPressed: () {
-                        auth.signInWithEmailAndPassword(
-                            email: _email, password: _password);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => new MyApp(email: _email),
-                          ),
-                        );
-                      },
+                      onPressed: () =>
+                          _signIn(_email, _password, auth, context),
                     ),
                   ),
                   Builder(
                     builder: (context) => ElevatedButton(
-                      child: Text('Sign Up'),
-                      onPressed: () {
-                        auth.createUserWithEmailAndPassword(
-                            email: _email, password: _password);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => new MyApp(email: _email),
-                          ),
-                        );
-                      },
-                    ),
+                        child: Text("Sign Up"),
+                        onPressed: () =>
+                            _signup(_email, _password, auth, context)),
                   ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Builder(
+                    builder: (context) => Center(
+                      child: TextButton(
+                        child:
+                            Text('Forgot Your Password? Click here to reset'),
+                        onPressed: () => _reset(context),
+                      ),
+                    ),
+                  )
                 ],
               )
             ],
@@ -115,5 +117,54 @@ class MyLoginPageState extends State<MyLoginPage> {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+}
+
+_reset(context) {
+  Navigator.of(context).pushReplacement(
+    MaterialPageRoute(builder: (context) => ResetScreen()),
+  );
+}
+
+_signIn(String _email, String _password, FirebaseAuth auth, context) async {
+  try {
+    await auth.signInWithEmailAndPassword(email: _email, password: _password);
+
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => new MyApp(email: _email)));
+  } on FirebaseAuthException catch (error) {
+    showToast(
+      error.message,
+      context: context,
+      animation: StyledToastAnimation.scale,
+      reverseAnimation: StyledToastAnimation.fade,
+      position: StyledToastPosition.center,
+      animDuration: Duration(seconds: 2),
+      duration: Duration(seconds: 4),
+      curve: Curves.elasticOut,
+      reverseCurve: Curves.linear,
+    );
+  }
+}
+
+_signup(String _email, String _password, FirebaseAuth auth, context) async {
+  try {
+    await auth.createUserWithEmailAndPassword(
+        email: _email, password: _password);
+
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => new VerifyScreen(email: _email)));
+  } on FirebaseAuthException catch (error) {
+    showToast(
+      error.message,
+      context: context,
+      animation: StyledToastAnimation.scale,
+      reverseAnimation: StyledToastAnimation.fade,
+      position: StyledToastPosition.center,
+      animDuration: Duration(seconds: 2),
+      duration: Duration(seconds: 4),
+      curve: Curves.elasticOut,
+      reverseCurve: Curves.linear,
+    );
   }
 }

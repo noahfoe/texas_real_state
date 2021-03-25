@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         title: 'Texas Real State',
         theme: ThemeData(
           primarySwatch: Colors.red,
+          accentColor: Colors.blueAccent,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: MyHomePage(
