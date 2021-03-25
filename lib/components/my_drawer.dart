@@ -38,9 +38,10 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text("User Name"),
+            accountName: Text("${email.replaceFirst(RegExp(r"\@[^]*"), "")}"),
             accountEmail: Text(email),
-            currentAccountPicture: CircleAvatar(child: Text('U')),
+            currentAccountPicture:
+                CircleAvatar(child: Text('${email[0].toUpperCase()}')),
           ),
           Padding(
             padding: EdgeInsets.all(10),

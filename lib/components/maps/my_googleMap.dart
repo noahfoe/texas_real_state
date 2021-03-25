@@ -15,33 +15,28 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LocationProvider>(builder: (consumerContext, model, child) {
-      if (model.locationPosition != null) {
-        return Column(
-          children: [
-            Expanded(
-              child: GoogleMap(
-                myLocationButtonEnabled: false,
-                compassEnabled: false,
-                mapType: MapType.normal,
-                initialCameraPosition: CameraPosition(
-                  target: model.locationPosition,
-                  zoom: 14.4746,
-                  tilt: 60,
-                  bearing: 0,
-                ),
-                myLocationEnabled: true,
-                onMapCreated: (GoogleMapController controller) {
-                  _controllerGoogleMap.complete(controller);
-                },
+      return Column(
+        children: [
+          Expanded(
+            child: GoogleMap(
+              zoomControlsEnabled: true,
+              zoomGesturesEnabled: true,
+              myLocationButtonEnabled: false,
+              compassEnabled: false,
+              mapType: MapType.normal,
+              initialCameraPosition: CameraPosition(
+                target: model.locationPosition,
+                zoom: 15,
+                tilt: 60,
+                bearing: 0,
               ),
+              myLocationEnabled: true,
+              onMapCreated: (GoogleMapController controller) {
+                _controllerGoogleMap.complete(controller);
+              },
             ),
-          ],
-        );
-      }
-      return Container(
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
+          ),
+        ],
       );
     });
   }

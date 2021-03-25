@@ -28,9 +28,14 @@ class _MyAboutPageState extends State<MyAboutPage> {
             child: Center(
               child: Column(
                 children: [
-                  Text(
-                    'About Us',
-                    style: TextStyle(fontSize: 30, color: Colors.black),
+                  Container(
+                    child: Text(
+                      'About Us',
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black),
+                    ),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
                   Center(

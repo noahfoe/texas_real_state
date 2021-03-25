@@ -29,9 +29,14 @@ class _MyContactPageState extends State<MyContactPage> {
             color: Colors.white,
             child: Column(
               children: [
-                Text(
-                  'Contact Us',
-                  style: TextStyle(fontSize: 30, color: Colors.black),
+                Container(
+                  child: Text(
+                    'Contact Us',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black),
+                  ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
                 Center(

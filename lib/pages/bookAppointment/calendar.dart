@@ -162,10 +162,13 @@ class _MyCalendarState extends State<MyCalendar> {
             padding: EdgeInsets.all(10),
           ),
           Center(
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                fontSize: 20,
+            child: Container(
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.black),
               ),
             ),
           ),
