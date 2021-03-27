@@ -44,3 +44,6 @@ app.*.map.json
 lib/components/maps/config_maps.dart
 android/app/src/main/AndroidManifest.xml
 ios/Runner/AppDelegate.swift
+
+*lib/pages/settings
+*lib/pages/aboutUs
