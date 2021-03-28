@@ -103,9 +103,23 @@ class MyLoginPageState extends State<MyLoginPage> {
                         onPressed: () => _reset(context),
                       ),
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 300,
+                height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage("https://tinyurl.com/5ev474vn"),
+                  ),
+                ),
+              ),
+              Spacer(),
             ],
           ),
         ),

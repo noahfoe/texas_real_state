@@ -60,17 +60,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             color: Theme.of(context).scaffoldBackgroundColor),
                         boxShadow: [
                           BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
-                              offset: Offset(0, 10))
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(0, 10),
+                          ),
                         ],
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                              "https://tinyurl.com/6casap63",
-                            )),
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            "https://tinyurl.com/6casap63",
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(

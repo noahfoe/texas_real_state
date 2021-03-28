@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyContactPage extends StatefulWidget {
   late String email;
@@ -107,51 +108,86 @@ class _MyContactPageState extends State<MyContactPage> {
                 Center(
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Spacer(),
-                          Icon(Icons.email),
-                          Text(
-                            ' TexasRealState@gmail.com',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
-                          ),
-                          Spacer(),
-                        ],
+                      GestureDetector(
+                        onTap: () async {
+                          await launch("mailto:TexasRealState@gmail.com");
+                        },
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            Icon(Icons.email),
+                            Text(
+                              ' TexasRealState@gmail.com',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                            ),
+                            Spacer(),
+                          ],
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      GestureDetector(
+                        onTap: () async {
+                          await launch("tel:123 456 7890");
+                        },
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            Icon(FontAwesomeIcons.phoneSquareAlt),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Text(
+                              ' (123) 456-7890',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
+                            ),
+                            Spacer(),
+                          ],
+                        ),
                       ),
                       Padding(padding: EdgeInsets.all(5)),
                       Row(
                         children: [
                           Spacer(),
-                          Icon(FontAwesomeIcons.phoneSquareAlt),
-                          SizedBox(
-                            width: 2,
-                          ),
-                          Text(
-                            ' (123) 456-7890',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
-                          ),
-                          Spacer(),
-                        ],
-                      ),
-                      Padding(padding: EdgeInsets.all(5)),
-                      Row(
-                        children: [
-                          Spacer(),
-                          Icon(FontAwesomeIcons.twitter),
-                          Text(
-                            ' @TexasRealState',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
+                          GestureDetector(
+                            onTap: () async {
+                              await launch(
+                                  "https://instagram.com/TexasRealState");
+                            },
+                            child: Row(
+                              children: [
+                                Icon(FontAwesomeIcons.instagramSquare),
+                                Text(
+                                  ' @TexasRealState',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black),
+                                ),
+                              ],
+                            ),
                           ),
                           Text(" | "),
-                          Icon(FontAwesomeIcons.instagramSquare),
-                          Text(
-                            ' @TexasRealState',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
+                          GestureDetector(
+                            onTap: () async {
+                              await launch(
+                                  "https://twitter.com/TexasRealState");
+                            },
+                            child: Row(
+                              children: [
+                                Icon(FontAwesomeIcons.twitter),
+                                Text(
+                                  ' @TexasRealState',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black),
+                                ),
+                              ],
+                            ),
                           ),
                           Spacer(),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.all(5)),
+                      Padding(padding: EdgeInsets.all(12)),
+                      Text("© 2021 Texas Real State"),
                     ],
                   ),
                 ),
