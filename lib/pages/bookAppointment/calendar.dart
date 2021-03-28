@@ -216,6 +216,10 @@ class _MyCalendarState extends State<MyCalendar> {
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             child: _calendarCarouselNoHeader,
           ),
+          SizedBox(
+            height: 135,
+          ),
+          Text("© 2021 Texas Real State"),
         ],
       ),
     ));

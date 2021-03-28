@@ -97,7 +97,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             buildNotificationSettingRow("Dark Mode", false),
             SizedBox(
-              height: 50,
+              height: 200,
             ),
             Center(
               child: OutlinedButton(
@@ -122,7 +122,11 @@ class _MySettingsPageState extends State<MySettingsPage> {
                     style: TextStyle(
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
               ),
-            )
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Text("© 2021 Texas Real State"),
           ],
         ),
       ),

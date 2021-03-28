@@ -106,6 +106,7 @@ class MyLoginPageState extends State<MyLoginPage> {
                   ),
                 ],
               ),
+              /*
               SizedBox(
                 height: 30,
               ),
@@ -119,7 +120,9 @@ class MyLoginPageState extends State<MyLoginPage> {
                   ),
                 ),
               ),
+              */
               Spacer(),
+              Text("© 2021 Texas Real State")
             ],
           ),
         ),

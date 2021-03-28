@@ -37,12 +37,19 @@ class _MyAboutPageState extends State<MyAboutPage> {
                     height: 10,
                   ),
                   Container(
-                    child: Text(
-                      'About Us',
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          'About Us',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.black),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -52,35 +59,44 @@ class _MyAboutPageState extends State<MyAboutPage> {
                     child: Column(
                       children: [
                         Text(
-                          'Texas Real State is developed by Texas State Students with Flutter. Founded in 2021.',
+                          '    Texas Real State is developed by Texas State Students with Flutter. Founded in 2021.',
                           style: TextStyle(fontSize: 20, color: Colors.black),
-                          textAlign: TextAlign.center,
                         ),
 
                         SizedBox(
                           height: 15,
                         ),
                         Text(
-                          'This app was created for Professor Rodion Podorozhny in CS 4398.',
+                          '    This app was created for Professor Rodion Podorozhny in CS 4398.',
                           style: TextStyle(fontSize: 20, color: Colors.black),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                         ),
                         SizedBox(
                           height: 15,
                         ),
                         Text(
-                          'We aim to make it easier for people to find real estate in their area.  ',
+                          '    Our goal was to create a centralized place for people to discover their new living space at Texas State University  ',
                           style: TextStyle(fontSize: 20, color: Colors.black),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                         ),
                         SizedBox(
                           height: 50,
                         ),
                         // Meet the team part (Links to GitHub accounts)
-                        Text(
-                          'Meet the group: (Click the picture to go to their github)',
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                          textAlign: TextAlign.center,
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Meet The Team: ',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.black),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 20,
@@ -89,7 +105,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           child: Row(
                             children: [
                               Container(
-                                child: Row(
+                                child: Column(
                                   children: [
                                     SizedBox(
                                       width: 40,
@@ -100,19 +116,19 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                       },
                                       child: Row(
                                         children: [
-                                          Text("Noah Foley"),
-                                          Padding(
-                                            padding: EdgeInsets.only(right: 15),
-                                          ),
                                           Image.network(
                                             "https://tinyurl.com/ym9nhufb",
                                             scale: 3,
-                                          )
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(right: 15),
+                                          ),
+                                          Text("Noah Foley"),
                                         ],
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 20,
+                                      height: 20,
                                     ),
                                     GestureDetector(
                                       onTap: () {
@@ -120,14 +136,17 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                       },
                                       child: Row(
                                         children: [
-                                          Text("Ryan Granado"),
-                                          Padding(
-                                              padding:
-                                                  EdgeInsets.only(right: 15)),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
                                           Image.network(
                                             'https://tinyurl.com/dx2tfzyc',
                                             scale: 3,
                                           ),
+                                          Padding(
+                                              padding:
+                                                  EdgeInsets.only(right: 15)),
+                                          Text("Ryan Granado"),
                                         ],
                                       ),
                                     ),
@@ -141,7 +160,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           height: 20,
                         ),
                         Container(
-                          child: Row(
+                          child: Column(
                             children: [
                               SizedBox(
                                 width: 10,
@@ -152,11 +171,14 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                 },
                                 child: Row(
                                   children: [
-                                    Text("Dillon Blankenship"),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
                                     Image.asset(
                                       'img/txst-logo.png',
                                       scale: 10,
                                     ),
+                                    Text("Dillon Blankenship"),
                                   ],
                                 ),
                               ),
@@ -169,11 +191,14 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                 },
                                 child: Row(
                                   children: [
-                                    Text("Tanner Harvey"),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
                                     Image.asset(
                                       'img/txst-logo.png',
                                       scale: 10,
                                     ),
+                                    Text("Tanner Harvey"),
                                   ],
                                 ),
                               ),

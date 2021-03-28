@@ -42,6 +42,8 @@ class _ResetScreenState extends State<ResetScreen> {
               ),
             ],
           ),
+          Spacer(),
+          Text("© 2021 Texas Real State"),
         ],
       ),
     );

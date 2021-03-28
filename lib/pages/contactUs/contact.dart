@@ -28,25 +28,39 @@ class _MyContactPageState extends State<MyContactPage> {
           Container(
             height: double.infinity,
             width: double.infinity,
-            color: Colors.grey[350],
+            color: Colors.grey[200],
             child: Column(
               children: [
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  child: Text(
-                    'Contact Us',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.black),
-                  ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      child: Text(
+                        'Contact Us',
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black),
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(padding: EdgeInsets.all(10)),
-                Text(
-                  "We want to hear your feedback!",
-                  style: TextStyle(fontSize: 15),
+                Padding(padding: EdgeInsets.all(5)),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "We want to hear your feedback!",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 15,
@@ -59,6 +73,10 @@ class _MyContactPageState extends State<MyContactPage> {
                     border: InputBorder.none,
                   ),
                 ),
+                Divider(
+                  height: 1,
+                  color: Colors.black,
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -69,6 +87,10 @@ class _MyContactPageState extends State<MyContactPage> {
                     hintText: "Email:",
                     border: InputBorder.none,
                   ),
+                ),
+                Divider(
+                  height: 1,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 10,
@@ -81,6 +103,10 @@ class _MyContactPageState extends State<MyContactPage> {
                     hintText: "Message:",
                     border: InputBorder.none,
                   ),
+                ),
+                Divider(
+                  height: 1,
+                  color: Colors.black,
                 ),
                 SizedBox(
                   height: 15,
@@ -103,7 +129,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           color: Colors.black)),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 110,
                 ),
                 Center(
                   child: Column(

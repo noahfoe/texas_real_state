@@ -6,6 +6,7 @@ import 'package:real_texas_state/components/maps/my_googleMap.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   late String email;
   MyHomePage({required this.email, Key? key}) : super(key: key);
@@ -37,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             MyGoogleMap(),
+
             ListView(
               children: [
                 Padding(
@@ -50,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+
             //buildFloatingSearchBar(),
           ],
         ),

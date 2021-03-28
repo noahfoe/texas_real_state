@@ -139,7 +139,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Text("© 2021 Texas Real State"),
             ],
           ),
         ),
@@ -161,10 +165,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         showPassword = !showPassword;
                       });
                     },
-                    icon: Icon(
-                      Icons.visibility_off,
-                      color: Colors.grey,
-                    ),
+                    icon: showPassword
+                        ? Icon(
+                            Icons.visibility_off,
+                            color: Colors.grey,
+                          )
+                        : Icon(
+                            Icons.visibility,
+                            color: Colors.grey,
+                          ),
                   )
                 : null,
             contentPadding: EdgeInsets.only(bottom: 3),
