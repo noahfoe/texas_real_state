@@ -29,6 +29,7 @@ class MyLoginPageState extends State<MyLoginPage> {
         ),
         debugShowCheckedModeBanner: false,
         home: new Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: MyAppBar(),
           body: Column(
             children: [
@@ -107,7 +108,7 @@ class MyLoginPageState extends State<MyLoginPage> {
                 ],
               ),
               SizedBox(
-                height: 30,
+                height: 40,
               ),
               Container(
                 width: 300,

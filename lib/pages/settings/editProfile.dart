@@ -39,11 +39,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          child: ListView(
+          child: Column(
             children: [
-              Text(
-                "Edit Profile",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              Row(
+                children: [
+                  Text(
+                    "Edit Profile",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 15,
@@ -140,9 +144,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   )
                 ],
               ),
-              SizedBox(
-                height: 60,
-              ),
+              Spacer(),
               Text("© 2021 Texas Real State"),
             ],
           ),

@@ -129,7 +129,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           color: Colors.black)),
                 ),
                 SizedBox(
-                  height: 110,
+                  height: 95,
                 ),
                 Center(
                   child: Column(
@@ -151,7 +151,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           ],
                         ),
                       ),
-                      Padding(padding: EdgeInsets.all(5)),
+                      Padding(padding: EdgeInsets.all(3)),
                       GestureDetector(
                         onTap: () async {
                           await launch("tel:123 456 7890");
@@ -172,7 +172,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           ],
                         ),
                       ),
-                      Padding(padding: EdgeInsets.all(5)),
+                      Padding(padding: EdgeInsets.all(3)),
                       Row(
                         children: [
                           Spacer(),
@@ -212,7 +212,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           Spacer(),
                         ],
                       ),
-                      Padding(padding: EdgeInsets.all(12)),
+                      SizedBox(height: 10),
                       Text("© 2021 Texas Real State"),
                     ],
                   ),

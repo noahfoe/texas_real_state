@@ -29,14 +29,18 @@ class _MySettingsPageState extends State<MySettingsPage> {
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
-        child: ListView(
+        child: Column(
           children: [
-            Text(
-              'Settings',
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.black),
+            Row(
+              children: [
+                Text(
+                  'Settings',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.black),
+                ),
+              ],
             ),
             SizedBox(
               height: 40,
@@ -123,9 +127,8 @@ class _MySettingsPageState extends State<MySettingsPage> {
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
               ),
             ),
-            SizedBox(
-              height: 25,
-            ),
+            Spacer(),
+            //SizedBox(height: 15),
             Text("© 2021 Texas Real State"),
           ],
         ),

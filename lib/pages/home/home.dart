@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             MyGoogleMap(),
 
-            ListView(
+            Column(
               children: [
                 Padding(
                   padding: EdgeInsets.all(8),

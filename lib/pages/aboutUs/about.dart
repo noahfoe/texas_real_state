@@ -14,7 +14,7 @@ class MyAboutPage extends StatefulWidget {
 class _MyAboutPageState extends State<MyAboutPage> {
   late String email;
   static const _noahUrl = "https://github.com/noahfoe";
-  static const _ryanUrl = "https://github.com/?????";
+  static const _ryanUrl = "https://github.com/Specialist111";
   static const _dillionUrl = "https://github.com/DillonBlankenship";
   static const _tannerUrl = "https://github.com/?????";
   _MyAboutPageState({required this.email});
@@ -80,7 +80,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           textAlign: TextAlign.left,
                         ),
                         SizedBox(
-                          height: 50,
+                          height: 10,
                         ),
                         // Meet the team part (Links to GitHub accounts)
                         Row(
@@ -128,7 +128,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height: 15,
                                     ),
                                     GestureDetector(
                                       onTap: () {
@@ -157,7 +157,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 15,
                         ),
                         Container(
                           child: Column(
@@ -183,7 +183,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                 ),
                               ),
                               SizedBox(
-                                width: 20,
+                                height: 15,
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -204,10 +204,6 @@ class _MyAboutPageState extends State<MyAboutPage> {
                               ),
                             ],
                           ),
-                        ),
-
-                        SizedBox(
-                          height: 15,
                         ),
                       ],
                     ),
