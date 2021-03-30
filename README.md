@@ -14,5 +14,5 @@
 ![GalleryPage2](screenshots/galleryPage_2.jpg)
 ![HomePage](screenshots/homePage.PNG)
 ![HamburgerMenu](screenshots/hamburger_menu.PNG)
-![SettingsPage](screenshots/settingPage.jpg)
+![SettingsPage](screenshots/settingsPage.jpg)
 ![ContactUsPage](screenshots/contactUsPage.jpg)
