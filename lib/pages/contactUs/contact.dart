@@ -6,7 +6,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MyContactPage extends StatefulWidget {
   late String email;
-  MyContactPage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyContactPage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
 
   @override
   _MyContactPageState createState() => _MyContactPageState(email: email);
@@ -21,7 +23,7 @@ class _MyContactPageState extends State<MyContactPage> {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: MyDrawer(
-        email: email,
+        email: email, firstName: '', lastName: ''
       ),
       body: Stack(
         children: [

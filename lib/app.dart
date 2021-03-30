@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => LocationProvider(),
           child: MyHomePage(
-            email: email,
+            email: email, firstName: '', lastName: ''
           ),
         ),
       ],
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: MyHomePage(
-          email: email,
+          email: email, firstName: '', lastName: ''
         ),
         debugShowCheckedModeBanner: false,
       ),

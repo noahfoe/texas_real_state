@@ -3,16 +3,20 @@ import 'package:real_texas_state/pages/settings/settings.dart';
 
 class EditProfilePage extends StatefulWidget {
   late String email;
-  EditProfilePage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  EditProfilePage({required this.email, required this.firstName, required this.lastName,Key? key}) : super(key: key);
 
   @override
-  _EditProfilePageState createState() => _EditProfilePageState(email: email);
+  _EditProfilePageState createState() => _EditProfilePageState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
   bool showPassword = false;
   late String email;
-  _EditProfilePageState({required this.email});
+  late String firstName;
+  late String lastName;
+  _EditProfilePageState({required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => MySettingsPage(
-                      email: email,
+                      email: email, firstName: firstName, lastName: lastName
                     )));
           },
         ),
@@ -100,7 +104,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "", false),
+              buildTextField("Full Name", "$firstName $lastName", false),
               buildTextField("E-mail", "$email", false),
               buildTextField("Password", "", true),
               buildTextField("Location", "San Marcos, Texas, USA", false),

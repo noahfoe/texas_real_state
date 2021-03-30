@@ -5,7 +5,9 @@ import 'package:real_texas_state/pages/bookAppointment/calendar.dart';
 
 class MyAppointmentPage extends StatefulWidget {
   late String email;
-  MyAppointmentPage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyAppointmentPage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
 
   @override
   _MyAppointmentPageState createState() =>
@@ -21,7 +23,7 @@ class _MyAppointmentPageState extends State<MyAppointmentPage> {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: MyDrawer(
-        email: email,
+        email: email, firstName: '', lastName: ''
       ),
       body: Stack(
         children: [
