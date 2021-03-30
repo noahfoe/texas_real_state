@@ -9,10 +9,12 @@
 * Google API's for Maps
 
 # Screenshots
-![LoginPage](screenshots/loginPage.jpg =250x250)
-![GalleryPage1](screenshots/galleryPage_1.jpg =250x250)
-![GalleryPage2](screenshots/galleryPage_2.jpg =250x250)
-![HomePage](screenshots/homePage.PNG =250x250)
-![HamburgerMenu](screenshots/hamburger_menu.PNG =250x250)
-![SettingsPage](screenshots/settingsPage.jpg =250x250)
-![ContactUsPage](screenshots/contactUsPage.jpg =250x250)
+<p align="center">
+  <img src="screenshots/loginPage.jpg" width="256" height="455">
+  <img src="screenshots/galleryPage_1.jpg" width="256" height="455">
+  <img src="screenshots/galleryPage_2.jpg" width="256" height="455">
+  <img src="screenshots/homePage.PNG" width="256" height="455">
+  <img src="screenshots/hamburger_menu.PNG" width="256" height="455">
+  <img src="screenshots/contactUsPage.jpg" width="256" height="455">
+  <img src="screenshots/settingsPage.jpg" width="256" height="455">
+</p>
