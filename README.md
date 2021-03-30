@@ -9,5 +9,10 @@
 * Google API's for Maps
 
 # Screenshots
+![LoginPage](screenshots/loginPage.jpg)
+![GalleryPage1](screenshots/galleryPage_1.jpg)
+![GalleryPage2](screenshots/galleryPage_2.jpg)
 ![HomePage](screenshots/homePage.PNG)
 ![HamburgerMenu](screenshots/hamburger_menu.PNG)
+![SettingsPage](screenshots/settingPage.jpg)
+![ContactUsPage](screenshots/contactUsPage.jpg)
