@@ -5,10 +5,16 @@ class EditProfilePage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  EditProfilePage({required this.email, required this.firstName, required this.lastName,Key? key}) : super(key: key);
+  EditProfilePage(
+      {required this.email,
+      required this.firstName,
+      required this.lastName,
+      Key? key})
+      : super(key: key);
 
   @override
-  _EditProfilePageState createState() => _EditProfilePageState(email: email, firstName: firstName, lastName: lastName);
+  _EditProfilePageState createState() => _EditProfilePageState(
+      email: email, firstName: firstName, lastName: lastName);
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
@@ -16,7 +22,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late String email;
   late String firstName;
   late String lastName;
-  _EditProfilePageState({required this.email, required this.firstName, required this.lastName});
+  _EditProfilePageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +40,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => MySettingsPage(
-                      email: email, firstName: firstName, lastName: lastName
-                    )));
+                    email: email, firstName: firstName, lastName: lastName)));
           },
         ),
       ),
@@ -114,7 +120,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               buildTextField("Password", "", true),
               buildTextField("Location", "San Marcos, Texas, USA", false),
               SizedBox(
-                height: 35,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
