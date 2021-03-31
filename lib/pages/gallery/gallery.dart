@@ -4,7 +4,9 @@ import 'package:real_texas_state/components/my_drawer.dart';
 
 class MyGalleryPage extends StatefulWidget {
   late String email;
-  MyGalleryPage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyGalleryPage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
 
   @override
   _MyGalleryPageState createState() => _MyGalleryPageState(email: email);
@@ -19,7 +21,7 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: MyDrawer(
-        email: email,
+        email: email, firstName: '', lastName: ''
       ),
       body: Container(
         height: double.infinity,

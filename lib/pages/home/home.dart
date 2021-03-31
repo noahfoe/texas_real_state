@@ -9,7 +9,9 @@ import 'package:real_texas_state/components/my_drawer.dart';
 // ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   late String email;
-  MyHomePage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyHomePage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState(email: email);
 }
@@ -31,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(email: email),
+      drawer: MyDrawer(email: email, firstName: '', lastName: ''),
       body: Container(
         width: _screenWidth,
         height: _screenHeight,
