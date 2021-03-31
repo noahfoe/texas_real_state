@@ -175,8 +175,13 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                       width: 20,
                                     ),
                                     Image.asset(
-                                      'img/txst-logo.png',
-                                      scale: 10,
+                                      'img/dillon.jpg',
+                                      scale: 23,
+                                      width: 60,
+                                      height: 75,
+                                    ),
+                                    SizedBox(
+                                      width: 20,
                                     ),
                                     Text("Dillon Blankenship"),
                                   ],
@@ -195,8 +200,11 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                       width: 20,
                                     ),
                                     Image.asset(
-                                      'img/txst-logo.png',
-                                      scale: 10,
+                                      'img/tanner.jpg',
+                                      scale: 5,
+                                    ),
+                                    SizedBox(
+                                      width: 17,
                                     ),
                                     Text("Tanner Harvey"),
                                   ],

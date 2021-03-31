@@ -60,6 +60,8 @@ flutter:
   assets:
       - img/txst-logo.png
       - img/red-logo.png
+      - img/tanner.jpg
+      - img/dillon.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

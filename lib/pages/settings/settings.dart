@@ -101,7 +101,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             buildNotificationSettingRow("Dark Mode", false),
             SizedBox(
-              height: 200,
+              height: 100,
             ),
             Center(
               child: OutlinedButton(

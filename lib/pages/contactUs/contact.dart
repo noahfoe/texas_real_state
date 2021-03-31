@@ -129,7 +129,7 @@ class _MyContactPageState extends State<MyContactPage> {
                           color: Colors.black)),
                 ),
                 SizedBox(
-                  height: 95,
+                  height: 55,
                 ),
                 Center(
                   child: Column(
