@@ -10,16 +10,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class MyDrawer extends StatefulWidget {
   late String email;
-  MyDrawer({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyDrawer({required this.email,required this.lastName, required this.firstName, Key? key}) : super(key: key);
 
   @override
-  _MyDrawerState createState() => _MyDrawerState(email: email);
+  _MyDrawerState createState() => _MyDrawerState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyDrawerState extends State<MyDrawer> {
   final auth = FirebaseAuth.instance;
   late String email;
-  _MyDrawerState({required this.email});
+  late String firstName;
+  late String lastName;
+  _MyDrawerState({required this.email, required this.lastName, required this.firstName});
 
   @override
   void initState() {
@@ -27,7 +31,7 @@ class _MyDrawerState extends State<MyDrawer> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       MaterialPageRoute(
           builder: (context) => new MyHomePage(
-                email: email,
+                email: email, firstName: firstName, lastName: lastName
               ));
     });
   }
@@ -38,7 +42,7 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text("${email.replaceFirst(RegExp(r"\@[^]*"), "")}"),
+            accountName: Text(""),//$firstName $lastName"), //testing the output of name
             accountEmail: Text(email),
             currentAccountPicture:
                 CircleAvatar(child: Text('${email[0].toUpperCase()}')),
@@ -54,7 +58,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyHomePage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           )));
             },
           ),
@@ -69,7 +73,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyGalleryPage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           )));
             },
           ),
@@ -84,7 +88,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyAppointmentPage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           )));
             },
           ),
@@ -99,7 +103,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyAboutPage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           )));
             },
           ),
@@ -114,7 +118,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyContactPage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           )));
             },
           ),
@@ -132,7 +136,7 @@ class _MyDrawerState extends State<MyDrawer> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => new MySettingsPage(
-                            email: email,
+                            email: email, firstName: firstName, lastName: lastName
                           ),
                         ),
                       );

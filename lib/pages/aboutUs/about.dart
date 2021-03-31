@@ -5,7 +5,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MyAboutPage extends StatefulWidget {
   late String email;
-  MyAboutPage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MyAboutPage({required this.email, Key? key, required this.firstName, required this.lastName}) : super(key: key);
 
   @override
   _MyAboutPageState createState() => _MyAboutPageState(email: email);
@@ -23,7 +25,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(email: email),
+      drawer: MyDrawer(email: email, firstName: '', lastName: ''),
       body: Stack(
         children: [
           Container(

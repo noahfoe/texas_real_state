@@ -8,24 +8,28 @@ import 'package:real_texas_state/pages/settings/editProfile.dart';
 
 class MySettingsPage extends StatefulWidget {
   late String email;
-  MySettingsPage({required this.email, Key? key}) : super(key: key);
+  late String firstName;
+  late String lastName;
+  MySettingsPage({required this.email, Key? key, required this.firstName, required this.lastName}) : super(key: key);
 
   @override
-  _MySettingsPageState createState() => _MySettingsPageState(email: email);
+  _MySettingsPageState createState() => _MySettingsPageState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MySettingsPageState extends State<MySettingsPage> {
   late String email;
+  late String firstName;
+  late String lastName;
   late String checkEmail;
   final auth = FirebaseAuth.instance;
-  _MySettingsPageState({required this.email});
+  _MySettingsPageState({required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: MyDrawer(
-        email: email,
+        email: email, firstName: firstName, lastName: lastName
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
@@ -271,7 +275,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             context,
             MaterialPageRoute(
                 builder: (context) => new EditProfilePage(
-                      email: email,
+                      email: email, firstName: firstName, lastName: lastName
                     )));
       },
       child: Padding(
