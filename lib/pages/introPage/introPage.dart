@@ -15,29 +15,31 @@ class IntroPage extends StatelessWidget {
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-        title: "Texas Real State",
+        title: "Welcome to Texas Real State",
         image: Image.network(
             'https://clipart.info/images/ccovers/1495751366Yellow-House-PNG-Clip-Art.png',
-            scale: 2),
-        body: 'Real Estate Sold Here',
-        footer: Text('@Texas Real State'),
-      ),
-      PageViewModel(
-        title: "Easy way to find your new apartment",
-        image: Image.network(
-          'https://www.pinclipart.com/picdir/big/8-88292_apartment-complex-clipart-apartment-house-apartment-building-clipart.png',
-          scale: 2,
-        ),
-        body: 'Find Apartments near Texas State University!',
+            scale: 8),
+        body: 'An app created for students by students',
         footer: Text('@Texas Real State'),
       ),
       PageViewModel(
         title: "We will ask to access location!",
         image: Image.network(
-          'https://lh3.googleusercontent.com/proxy/JkerRgRjGCeT7K4PDzoxBYu1TjNAbo44vgnGxy5N90kyV6afXv85kIMwMtjP5IXkfLMFdHK7RqtrjwU2i26K83DJU9aaXTHyqlPoWKT6p8eUvXCbtRe1CDWN_locCQ',
-          scale: 2,
+          'https://www.jing.fm/clipimg/full/68-680340_gps-locator-map-location-navigation-direction-transparent-background.png',
+          scale: 3,
         ),
-        body: 'We use Google Maps and will need your location services enabled',
+        body:
+            'We use Google Maps and will need your location services enabled, but do not worry, we do not collect any of this data',
+        footer: Text('@Texas Real State'),
+      ),
+      PageViewModel(
+        title: "Serach for your new apartment from any mobile device",
+        image: Image.network(
+          'https://www.pinclipart.com/picdir/big/8-88292_apartment-complex-clipart-apartment-house-apartment-building-clipart.png',
+          scale: 10,
+        ),
+        body:
+            'Find Apartments near Texas State University and get started to today!',
         footer: Text('@Texas Real State'),
       ),
     ];
