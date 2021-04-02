@@ -130,7 +130,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
+                    onPressed: () {
+                      // return to settings page
+                    },
                     child: Text("CANCEL",
                         style: TextStyle(
                             fontSize: 14,
@@ -139,7 +141,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   // Change to ElevatedButton
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // save information
+                    },
                     color: Colors.red,
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     elevation: 2,

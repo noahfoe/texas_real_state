@@ -7,19 +7,26 @@ import 'package:real_texas_state/components/my_appBar.dart';
 
 class VerifyScreen extends StatefulWidget {
   late String email;
-  VerifyScreen({required this.email});
+  late String firstName;
+  late String lastName;
+  VerifyScreen(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
-  _VerifyScreenState createState() => _VerifyScreenState(email: email);
+  _VerifyScreenState createState() => _VerifyScreenState(
+      email: email, firstName: firstName, lastName: lastName);
 }
 
 class _VerifyScreenState extends State<VerifyScreen> {
   late String email;
+  late String firstName;
+  late String lastName;
   final auth = FirebaseAuth.instance;
   late User user;
   late Timer timer;
 
-  _VerifyScreenState({required this.email});
+  _VerifyScreenState(
+      {required this.email, required this.firstName, required this.lastName});
 
   void initState() {
     user = auth.currentUser!;
@@ -53,8 +60,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
     await user.reload();
     if (user.emailVerified) {
       timer.cancel();
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => MyApp(email: email)));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => MyApp(
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+              )));
     }
   }
 }

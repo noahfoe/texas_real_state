@@ -14,6 +14,8 @@ class MyLoginPage extends StatefulWidget {
 class MyLoginPageState extends State<MyLoginPage> {
   final auth = FirebaseAuth.instance;
   bool _isHidden = true;
+  late String firstName;
+  late String lastName;
   late String _email;
   late String _password;
 
@@ -38,6 +40,36 @@ class MyLoginPageState extends State<MyLoginPage> {
                 child: Text(
                   "Log In / Sign Up",
                   style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintText: 'First Name',
+                    icon: Icon(Icons.person),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      firstName = value.trim();
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintText: 'Last Name',
+                    icon: Icon(Icons.people_alt),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      lastName = value.trim();
+                    });
+                  },
                 ),
               ),
               Padding(
@@ -81,15 +113,15 @@ class MyLoginPageState extends State<MyLoginPage> {
                   Builder(
                     builder: (context) => ElevatedButton(
                       child: Text('Sign In'),
-                      onPressed: () =>
-                          _signIn(_email, _password, auth, context),
+                      onPressed: () => _signIn(_email, firstName, lastName,
+                          _password, auth, context),
                     ),
                   ),
                   Builder(
                     builder: (context) => ElevatedButton(
                         child: Text("Sign Up"),
-                        onPressed: () =>
-                            _signup(_email, _password, auth, context)),
+                        onPressed: () => _signup(_email, firstName, lastName,
+                            _password, auth, context)),
                   ),
                 ],
               ),
@@ -107,12 +139,10 @@ class MyLoginPageState extends State<MyLoginPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 40,
-              ),
+              Spacer(),
               Container(
-                width: 300,
-                height: 300,
+                width: 200,
+                height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -142,12 +172,17 @@ _reset(context) {
   );
 }
 
-_signIn(String _email, String _password, FirebaseAuth auth, context) async {
+_signIn(String _email, String firstName, String lastName, String _password,
+    FirebaseAuth auth, context) async {
   try {
     await auth.signInWithEmailAndPassword(email: _email, password: _password);
 
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => new MyApp(email: _email)));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => new MyApp(
+              email: _email,
+              firstName: firstName,
+              lastName: lastName,
+            )));
   } on FirebaseAuthException catch (error) {
     showToast(
       error.message,
@@ -163,13 +198,18 @@ _signIn(String _email, String _password, FirebaseAuth auth, context) async {
   }
 }
 
-_signup(String _email, String _password, FirebaseAuth auth, context) async {
+_signup(String _email, String firstName, String lastName, String _password,
+    FirebaseAuth auth, context) async {
   try {
     await auth.createUserWithEmailAndPassword(
         email: _email, password: _password);
 
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => new VerifyScreen(email: _email)));
+        builder: (context) => new VerifyScreen(
+              email: _email,
+              firstName: firstName,
+              lastName: lastName,
+            )));
   } on FirebaseAuthException catch (error) {
     showToast(
       error.message,

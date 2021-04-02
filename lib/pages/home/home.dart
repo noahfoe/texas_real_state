@@ -11,14 +11,23 @@ class MyHomePage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MyHomePage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
+  MyHomePage(
+      {required this.email,
+      required this.firstName,
+      required this.lastName,
+      Key? key})
+      : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState(email: email);
+  _MyHomePageState createState() =>
+      _MyHomePageState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   late String email;
-  _MyHomePageState({required this.email});
+  late String firstName;
+  late String lastName;
+  _MyHomePageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   void initState() {
@@ -33,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(email: email, firstName: '', lastName: ''),
+      drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Container(
         width: _screenWidth,
         height: _screenHeight,

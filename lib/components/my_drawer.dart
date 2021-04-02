@@ -12,10 +12,16 @@ class MyDrawer extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MyDrawer({required this.email,required this.lastName, required this.firstName, Key? key}) : super(key: key);
+  MyDrawer(
+      {required this.email,
+      required this.lastName,
+      required this.firstName,
+      Key? key})
+      : super(key: key);
 
   @override
-  _MyDrawerState createState() => _MyDrawerState(email: email, firstName: firstName, lastName: lastName);
+  _MyDrawerState createState() =>
+      _MyDrawerState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyDrawerState extends State<MyDrawer> {
@@ -23,7 +29,8 @@ class _MyDrawerState extends State<MyDrawer> {
   late String email;
   late String firstName;
   late String lastName;
-  _MyDrawerState({required this.email, required this.lastName, required this.firstName});
+  _MyDrawerState(
+      {required this.email, required this.lastName, required this.firstName});
 
   @override
   void initState() {
@@ -31,8 +38,7 @@ class _MyDrawerState extends State<MyDrawer> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       MaterialPageRoute(
           builder: (context) => new MyHomePage(
-                email: email, firstName: firstName, lastName: lastName
-              ));
+              email: email, firstName: firstName, lastName: lastName));
     });
   }
 
@@ -42,7 +48,7 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text(""),//$firstName $lastName"), //testing the output of name
+            accountName: Text("$firstName $lastName"),
             accountEmail: Text(email),
             currentAccountPicture:
                 CircleAvatar(child: Text('${email[0].toUpperCase()}')),
@@ -58,8 +64,9 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyHomePage(
-                            email: email, firstName: firstName, lastName: lastName
-                          )));
+                          email: email,
+                          firstName: firstName,
+                          lastName: lastName)));
             },
           ),
           Padding(
@@ -73,8 +80,9 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyGalleryPage(
-                            email: email, firstName: firstName, lastName: lastName
-                          )));
+                          email: email,
+                          firstName: firstName,
+                          lastName: lastName)));
             },
           ),
           Padding(
@@ -88,8 +96,9 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyAppointmentPage(
-                            email: email, firstName: firstName, lastName: lastName
-                          )));
+                          email: email,
+                          firstName: firstName,
+                          lastName: lastName)));
             },
           ),
           Padding(
@@ -103,8 +112,9 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyAboutPage(
-                            email: email, firstName: firstName, lastName: lastName
-                          )));
+                          email: email,
+                          firstName: firstName,
+                          lastName: lastName)));
             },
           ),
           Padding(
@@ -118,8 +128,9 @@ class _MyDrawerState extends State<MyDrawer> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => new MyContactPage(
-                            email: email, firstName: firstName, lastName: lastName
-                          )));
+                          email: email,
+                          firstName: firstName,
+                          lastName: lastName)));
             },
           ),
           Divider(),
@@ -136,8 +147,9 @@ class _MyDrawerState extends State<MyDrawer> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => new MySettingsPage(
-                            email: email, firstName: firstName, lastName: lastName
-                          ),
+                              email: email,
+                              firstName: firstName,
+                              lastName: lastName),
                         ),
                       );
                     },

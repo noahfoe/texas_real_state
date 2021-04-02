@@ -6,23 +6,30 @@ class MyGalleryPage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MyGalleryPage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
+  MyGalleryPage(
+      {required this.email,
+      required this.firstName,
+      required this.lastName,
+      Key? key})
+      : super(key: key);
 
   @override
-  _MyGalleryPageState createState() => _MyGalleryPageState(email: email);
+  _MyGalleryPageState createState() => _MyGalleryPageState(
+      email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyGalleryPageState extends State<MyGalleryPage> {
   late String email;
-  _MyGalleryPageState({required this.email});
+  late String firstName;
+  late String lastName;
+  _MyGalleryPageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(
-        email: email, firstName: '', lastName: ''
-      ),
+      drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Container(
         height: double.infinity,
         width: double.infinity,

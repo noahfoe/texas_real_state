@@ -8,23 +8,30 @@ class MyContactPage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MyContactPage({required this.email, required this.firstName, required this.lastName, Key? key}) : super(key: key);
+  MyContactPage(
+      {required this.email,
+      required this.firstName,
+      required this.lastName,
+      Key? key})
+      : super(key: key);
 
   @override
-  _MyContactPageState createState() => _MyContactPageState(email: email);
+  _MyContactPageState createState() => _MyContactPageState(
+      email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyContactPageState extends State<MyContactPage> {
   late String email;
-  _MyContactPageState({required this.email});
+  late String firstName;
+  late String lastName;
+  _MyContactPageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(
-        email: email, firstName: '', lastName: ''
-      ),
+      drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Stack(
         children: [
           Container(
@@ -123,7 +130,9 @@ class _MyContactPageState extends State<MyContactPage> {
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20))),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    // send info to texasrealstate@gmail.com
+                  },
                   child: Text("SUBMIT",
                       style: TextStyle(
                           fontSize: 16,

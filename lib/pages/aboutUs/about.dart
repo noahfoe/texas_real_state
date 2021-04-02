@@ -7,25 +7,34 @@ class MyAboutPage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MyAboutPage({required this.email, Key? key, required this.firstName, required this.lastName}) : super(key: key);
+  MyAboutPage(
+      {required this.email,
+      Key? key,
+      required this.firstName,
+      required this.lastName})
+      : super(key: key);
 
   @override
-  _MyAboutPageState createState() => _MyAboutPageState(email: email);
+  _MyAboutPageState createState() =>
+      _MyAboutPageState(email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MyAboutPageState extends State<MyAboutPage> {
   late String email;
+  late String firstName;
+  late String lastName;
   static const _noahUrl = "https://github.com/noahfoe";
   static const _ryanUrl = "https://github.com/Specialist111";
   static const _dillionUrl = "https://github.com/DillonBlankenship";
   static const _tannerUrl = "https://github.com/?????";
-  _MyAboutPageState({required this.email});
+  _MyAboutPageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(email: email, firstName: '', lastName: ''),
+      drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Stack(
         children: [
           Container(
