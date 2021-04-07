@@ -48,7 +48,6 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               height: 10,
             ),
             _buildListings(),
-            Text("© 2021 Texas Real State"),
           ],
         ),
       ),
