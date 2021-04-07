@@ -42,6 +42,7 @@ dependencies:
   url_launcher: ^6.0.3
   image_picker: ^0.7.4
   image_cropper: ^1.4.0
+  dcdg: ^3.0.0
   
 dev_dependencies:
   flutter_test:
