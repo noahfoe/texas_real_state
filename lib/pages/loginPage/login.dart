@@ -45,6 +45,7 @@ class MyLoginPageState extends State<MyLoginPage> {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: TextField(
+                  textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'First Name',
@@ -60,6 +61,7 @@ class MyLoginPageState extends State<MyLoginPage> {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: TextField(
+                  textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     hintText: 'Last Name',

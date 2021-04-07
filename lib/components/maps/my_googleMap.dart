@@ -11,6 +11,21 @@ class MyGoogleMap extends StatefulWidget {
 
 class _MyGoogleMapState extends State<MyGoogleMap> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
+  // TODO: Markers not showing up on map
+  Set<Marker> _markers = {
+    Marker(
+      markerId: MarkerId("redpoint"),
+      position: LatLng(29.8719, 97.9290),
+    ),
+    Marker(
+      markerId: MarkerId("castlerock"),
+      position: LatLng(29.8942, 97.9080),
+    ),
+    Marker(
+      markerId: MarkerId("vistas"),
+      position: LatLng(29.8852, 97.9433),
+    ),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +45,7 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
                 tilt: 60,
                 bearing: 0,
               ),
+              markers: _markers,
               myLocationEnabled: true,
               onMapCreated: (GoogleMapController controller) {
                 _controllerGoogleMap.complete(controller);

@@ -48,7 +48,6 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               height: 10,
             ),
             _buildListings(),
-            Text("© 2021 Texas Real State"),
           ],
         ),
       ),
@@ -75,54 +74,14 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
                   ),
                 ],
               ),
-              Image.network("https://tinyurl.com/5hekskkh", scale: 3),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Redpoint San Marcos",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  Text(
-                    "\~\$600/month",
-                    style: TextStyle(fontSize: 20),
-                  )
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Text(
-                    "4 beds/baths",
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    "Gym/Pool/Parking avaliable",
-                    style: TextStyle(fontSize: 17),
-                  )
-                ],
-              ),
-              SizedBox(height: 5),
-              Row(
-                children: [
-                  Text(
-                    "650 River Rd",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "San Marcos, TX 78666",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
+              _buildListing(
+                  "https://tinyurl.com/5hekskkh",
+                  "Redpoint San Marcos",
+                  "\~\$600/month",
+                  "4 beds/baths",
+                  "Gym/Pool/Parking avaliable",
+                  "650 River Rd",
+                  "San Marcos, TX 78666"),
             ],
           ),
           Divider(
@@ -130,115 +89,27 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
             thickness: 1,
             color: Colors.red,
           ),
-          Column(
-            children: [
-              Image.network("https://tinyurl.com/yw2rvnhh", scale: 1),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "CastleRock San Marcos",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  Text(
-                    "\~\$800/month",
-                    style: TextStyle(fontSize: 20),
-                  )
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Text(
-                    "1-2 beds/baths",
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    "Gym/Pool/Parking avaliable",
-                    style: TextStyle(fontSize: 17),
-                  )
-                ],
-              ),
-              SizedBox(height: 5),
-              Row(
-                children: [
-                  Text(
-                    "1610 N Interstate 35",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "San Marcos, TX 78666",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          _buildListing(
+              "https://tinyurl.com/yw2rvnhh",
+              "CastleRock San Marcos",
+              "\~\$800/month",
+              "1-2 beds/baths",
+              "Gym/Pool/Parking avaliable",
+              "1610 N Interstate 35",
+              "San Marcos, TX 78666"),
           Divider(
             height: 25,
             thickness: 1,
             color: Colors.red,
           ),
-          Column(
-            children: [
-              Image.network("https://tinyurl.com/cersv2ue", scale: 1),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Vistas of San Marcos",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  Text(
-                    "\~\$650/month",
-                    style: TextStyle(fontSize: 20),
-                  )
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Text(
-                    "4 beds/baths",
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    "Gym/Pool/Parking avaliable",
-                    style: TextStyle(fontSize: 17),
-                  )
-                ],
-              ),
-              SizedBox(height: 5),
-              Row(
-                children: [
-                  Text(
-                    "401 Fredericksburg St.",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "San Marcos, TX 78666",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          _buildListing(
+              "https://tinyurl.com/cersv2ue",
+              "Vistas of San Marcos",
+              "\~\$650/month",
+              "4 beds/baths",
+              "Gym/Pool/Parking avaliable",
+              "401 Fredericksburg St.",
+              "San Marcos, TX 78666"),
           Divider(
             height: 25,
             thickness: 1,
@@ -247,6 +118,62 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
           Text("© 2021 Texas Real State"),
         ],
       ),
+    );
+  }
+
+  Column _buildListing(String url, String title, String price, String beds,
+      String amenities, String address, String city) {
+    return Column(
+      children: [
+        Image.network(url, scale: 1),
+        SizedBox(
+          height: 5,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              price,
+              style: TextStyle(fontSize: 20),
+            )
+          ],
+        ),
+        SizedBox(height: 10),
+        Row(
+          children: [
+            Text(
+              beds,
+              style: TextStyle(fontSize: 17),
+            ),
+            SizedBox(width: 10),
+            Text(
+              amenities,
+              style: TextStyle(fontSize: 17),
+            )
+          ],
+        ),
+        SizedBox(height: 5),
+        Row(
+          children: [
+            Text(
+              address,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Text(
+              city,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
