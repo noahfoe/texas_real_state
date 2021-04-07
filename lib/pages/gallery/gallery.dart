@@ -81,7 +81,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
                   "\~\$600/month",
                   "4 beds/baths",
                   "Gym/Pool/Parking avaliable",
-                  "650 River Rd"),
+                  "650 River Rd",
+                  "San Marcos, TX 78666"),
             ],
           ),
           Divider(
@@ -95,7 +96,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "\~\$800/month",
               "1-2 beds/baths",
               "Gym/Pool/Parking avaliable",
-              "1610 N Interstate 35"),
+              "1610 N Interstate 35",
+              "San Marcos, TX 78666"),
           Divider(
             height: 25,
             thickness: 1,
@@ -107,7 +109,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "\~\$650/month",
               "4 beds/baths",
               "Gym/Pool/Parking avaliable",
-              "401 Fredericksburg St."),
+              "401 Fredericksburg St.",
+              "San Marcos, TX 78666"),
           Divider(
             height: 25,
             thickness: 1,
@@ -120,7 +123,7 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
   }
 
   Column _buildListing(String url, String title, String price, String beds,
-      String amenities, String address) {
+      String amenities, String address, String city) {
     return Column(
       children: [
         Image.network(url, scale: 1),
@@ -166,7 +169,7 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
         Row(
           children: [
             Text(
-              "San Marcos, TX 78666",
+              city,
               style: TextStyle(fontSize: 14),
             ),
           ],
