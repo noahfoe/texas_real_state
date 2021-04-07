@@ -113,7 +113,7 @@ class _MyCalendarState extends State<MyCalendar> {
       thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
       markedDatesMap: _markedDateMap,
-      height: 420.0,
+      height: 300.0,
       selectedDateTime: _currentDate,
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
@@ -215,15 +215,6 @@ class _MyCalendarState extends State<MyCalendar> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             child: _calendarCarouselNoHeader,
-          ),
-          SizedBox(
-            height: 120,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("© 2021 Texas Real State"),
-            ],
           ),
         ],
       ),

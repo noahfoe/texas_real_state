@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:real_texas_state/pages/settings/settings.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -18,6 +21,8 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  final picker = ImagePicker();
+  late File? pickedImage;
   bool showPassword = false;
   late String email;
   late String firstName;
@@ -66,49 +71,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Center(
                 child: Stack(
                   children: [
-                    Container(
-                      width: 130,
-                      height: 130,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 4,
-                            color: Theme.of(context).scaffoldBackgroundColor),
-                        boxShadow: [
-                          BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            color: Colors.black.withOpacity(0.1),
-                            offset: Offset(0, 10),
-                          ),
-                        ],
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "https://tinyurl.com/6casap63",
-                          ),
+                    CircleAvatar(
+                        radius: 60,
+                        backgroundImage:
+                            NetworkImage("https://tinyurl.com/6casap63")),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _showPickedOptionsDialog(context);
+                        },
+                        child: Icon(
+                          Icons.edit,
+                          color: Colors.white,
+                          size: 20.0,
                         ),
+                        style: ElevatedButton.styleFrom(
+                            shape: CircleBorder(), primary: Colors.red),
                       ),
                     ),
-                    Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                            ),
-                            color: Colors.red,
-                          ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                          ),
-                        )),
                   ],
                 ),
               ),
@@ -126,10 +108,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Change to OutlinedButton
-                  OutlineButton(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                  OutlinedButton(
+                    //padding: EdgeInsets.symmetric(horizontal: 50),
+                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     onPressed: () {
                       // return to settings page
                     },
@@ -140,15 +121,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             color: Colors.black)),
                   ),
                   // Change to ElevatedButton
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       // save information
                     },
-                    color: Colors.red,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                    //color: Colors.red,
+                    //padding: EdgeInsets.symmetric(horizontal: 50),
+                    //elevation: 2,
+                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     child: Text(
                       "SAVE",
                       style: TextStyle(
@@ -166,6 +146,39 @@ class _EditProfilePageState extends State<EditProfilePage> {
         ),
       ),
     );
+  }
+
+  void _showPickedOptionsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+          content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            title: Text("Pick from Gallery"),
+            onTap: () {
+              _loadPicker(ImageSource.gallery);
+            },
+          ),
+          ListTile(
+            title: Text("Take a Picture"),
+            onTap: () {
+              _loadPicker(ImageSource.camera);
+            },
+          ),
+        ],
+      )),
+    );
+  }
+
+  _loadPicker(ImageSource source) async {
+    final picked = await picker.getImage(source: source);
+    if (picked != null) {
+      setState(() {
+        pickedImage = File(picked.path);
+      });
+    }
   }
 
   Widget buildTextField(

@@ -29,7 +29,7 @@ class IntroPage extends StatelessWidget {
           scale: 3,
         ),
         body:
-            'We use Google Maps and will need your location services enabled, but do not worry, we do not collect any of this data',
+            'We use Google Maps and will need your location services enabled, but don\'t worry, we do not collect any of this data',
         footer: Text('@Texas Real State'),
       ),
       PageViewModel(

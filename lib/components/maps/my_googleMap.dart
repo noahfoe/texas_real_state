@@ -26,7 +26,7 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
               mapType: MapType.normal,
               initialCameraPosition: CameraPosition(
                 target: model.locationPosition,
-                zoom: 15,
+                zoom: 13,
                 tilt: 60,
                 bearing: 0,
               ),

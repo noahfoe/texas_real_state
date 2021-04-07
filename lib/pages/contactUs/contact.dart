@@ -30,6 +30,7 @@ class _MyContactPageState extends State<MyContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: MyAppBar(),
       drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Stack(
@@ -90,12 +91,18 @@ class _MyContactPageState extends State<MyContactPage> {
                   height: 10,
                 ),
                 TextField(
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: "Email:",
                     border: InputBorder.none,
                   ),
+                  onChanged: (value) {
+                    setState(() {
+                      email = value.trim();
+                    });
+                  },
                 ),
                 Divider(
                   height: 1,
@@ -133,11 +140,11 @@ class _MyContactPageState extends State<MyContactPage> {
                   onPressed: () {
                     // send info to texasrealstate@gmail.com
                   },
-                  child: Text("SUBMIT",
-                      style: TextStyle(
-                          fontSize: 16,
-                          letterSpacing: 2.2,
-                          color: Colors.black)),
+                  child: Text(
+                    "SUBMIT",
+                    style: TextStyle(
+                        fontSize: 16, letterSpacing: 2.2, color: Colors.black),
+                  ),
                 ),
                 SizedBox(
                   height: 55,
