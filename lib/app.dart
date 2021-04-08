@@ -4,7 +4,7 @@ import 'package:real_texas_state/components/maps/location/location_provider.dart
 import 'package:real_texas_state/pages/home/home.dart';
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of the application.
   late String email;
   late String firstName;
   late String lastName;
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Using MultiProvider because of Location
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
