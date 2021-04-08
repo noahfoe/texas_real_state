@@ -49,11 +49,20 @@ class _VerifyScreenState extends State<VerifyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      body: Center(
+      body: Container(
+        padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: Column(
           children: [
-            Text("Verifification", style: TextStyle(fontSize: 25)),
-            Divider(),
+            Row(
+              children: [
+                Text("Verifification", style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.black),),
+              ],
+
+            ),
+            Divider(color: Colors.red, thickness: 1),
             Text('An email has been sent to ${user.email} please verify'),
           ],
         ),
