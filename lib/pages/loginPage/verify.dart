@@ -50,7 +50,13 @@ class _VerifyScreenState extends State<VerifyScreen> {
     return Scaffold(
       appBar: MyAppBar(),
       body: Center(
-        child: Text('An email has been sent to ${user.email} please verify'),
+        child: Column(
+          children: [
+            Text("Verifification", style: TextStyle(fontSize: 25)),
+            Divider(),
+            Text('An email has been sent to ${user.email} please verify'),
+          ],
+        ),
       ),
     );
   }
