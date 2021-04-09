@@ -26,8 +26,9 @@ class _MyCalendarState extends State<MyCalendar> {
     final _calendarCarouselNoHeader = CalendarCarousel<Event>(
       todayBorderColor: Colors.green,
       onDayPressed: (date, events) {
-        this.setState(() => _currentDate = date);
-        events.forEach((event) => print(event.title));
+        this.setState(() {
+          _currentDate = date;
+        });
       },
       daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
@@ -151,7 +152,7 @@ class _MyCalendarState extends State<MyCalendar> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _targetDate = _targetDateTime.toString();
+                          _targetDate = _currentDate.toString();
                           _targetDate = convertDateTimeDisplay(_targetDate);
                           timeSelected = "11:00 AM on $_targetDate";
                         });
@@ -175,7 +176,7 @@ class _MyCalendarState extends State<MyCalendar> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _targetDate = _targetDateTime.toString();
+                          _targetDate = _currentDate.toString();
                           _targetDate = convertDateTimeDisplay(_targetDate);
                           timeSelected = "12:30 PM on $_targetDate";
                         });
@@ -199,7 +200,7 @@ class _MyCalendarState extends State<MyCalendar> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _targetDate = _targetDateTime.toString();
+                          _targetDate = _currentDate.toString();
                           _targetDate = convertDateTimeDisplay(_targetDate);
                           timeSelected = "3:00 PM on $_targetDate";
                         });
