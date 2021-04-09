@@ -229,7 +229,7 @@ class _MyCalendarState extends State<MyCalendar> {
                                     "Thank you for booking an appointment with Texas Real State."),
                                 Padding(padding: EdgeInsets.all(10)),
                                 Text(
-                                    "Your appointment is set for $timeSelected on $_targetDate!"),
+                                    "Your appointment is set for $timeSelected"),
                               ],
                             ),
                             actions: [
@@ -271,7 +271,7 @@ class _MyCalendarState extends State<MyCalendar> {
 
   String convertDateTimeDisplay(String date) {
     final DateFormat displayFormater = DateFormat('yyyy-MM-dd HH:mm:ss.SSS');
-    final DateFormat serverFormater = DateFormat('MM/dd/yyyy');
+    final DateFormat serverFormater = DateFormat('MM-dd-yyyy');
     final DateTime displayDate = displayFormater.parse(date);
     final String formatted = serverFormater.format(displayDate);
     return formatted;
