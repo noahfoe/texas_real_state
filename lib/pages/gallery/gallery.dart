@@ -98,7 +98,7 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "\~\$800/month",
               "1-2 beds/baths",
               "Gym/Pool/Parking avaliable",
-              "1610 N Interstate 35",
+              "1610 N. Interstate 35",
               "San Marcos, TX 78666"),
           Divider(
             height: 25,

@@ -11,22 +11,6 @@ class MyGoogleMap extends StatefulWidget {
 
 class _MyGoogleMapState extends State<MyGoogleMap> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
-  // TODO: Markers not showing up on map
-  Set<Marker> _markers = {
-    Marker(
-      markerId: MarkerId("redpoint"),
-      position: LatLng(29.8719, 97.9290),
-    ),
-    Marker(
-      markerId: MarkerId("castlerock"),
-      position: LatLng(29.8942, 97.9080),
-    ),
-    Marker(
-      markerId: MarkerId("vistas"),
-      position: LatLng(29.8852, 97.9433),
-    ),
-  };
-
   @override
   Widget build(BuildContext context) {
     return Consumer<LocationProvider>(builder: (consumerContext, model, child) {
@@ -45,7 +29,7 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
                 tilt: 60,
                 bearing: 0,
               ),
-              markers: _markers,
+              markers: _createMarkers(),
               myLocationEnabled: true,
               onMapCreated: (GoogleMapController controller) {
                 _controllerGoogleMap.complete(controller);
@@ -55,5 +39,40 @@ class _MyGoogleMapState extends State<MyGoogleMap> {
         ],
       );
     });
+  }
+
+  Set<Marker> _createMarkers() {
+    return {
+      Marker(
+        markerId: MarkerId("Redpoint"),
+        position: LatLng(29.872138656794498, -97.92894137317742),
+        infoWindow:
+            InfoWindow(title: "Redpoint San Marcos", snippet: "650 River Rd"),
+      ),
+      Marker(
+        markerId: MarkerId("Castlerock"),
+        position: LatLng(29.894365600489596, -97.90804220201274),
+        infoWindow: InfoWindow(
+            title: "CastleRock San Marcos", snippet: "1610 N. Interstate 35"),
+      ),
+      Marker(
+        markerId: MarkerId("Vistas"),
+        position: LatLng(29.885342212281213, -97.94329787317722),
+        infoWindow: InfoWindow(
+            title: "Vistas of San Marcos", snippet: "401 Fredericksburg St."),
+      ),
+      Marker(
+        markerId: MarkerId("Cottages"),
+        position: LatLng(29.88359055441444, -97.96926920201298),
+        infoWindow: InfoWindow(
+            title: "Cottages of San Marcos", snippet: "1415 Craddock Ave."),
+      ),
+      Marker(
+        markerId: MarkerId("Local"),
+        position: LatLng(29.884185236645642, -97.93871230201292),
+        infoWindow: InfoWindow(
+            title: "The Local Downtown", snippet: "251 N. Edward Gary St."),
+      ),
+    };
   }
 }
