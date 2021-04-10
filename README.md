@@ -11,10 +11,13 @@
 # Screenshots
 <p align="center">
   <img src="screenshots/loginPage.jpg" width="256" height="455">
-  <img src="screenshots/galleryPage_1.jpg" width="256" height="455">
-  <img src="screenshots/galleryPage_2.jpg" width="256" height="455">
-  <img src="screenshots/homePage.PNG" width="256" height="455">
-  <img src="screenshots/hamburger_menu.PNG" width="256" height="455">
+  <img src="screenshots/homePage.jpg" width="256" height="455">
+  <img src="screenshots/hamburger_menu.jpg" width="256" height="455">
+  <img src="screenshots/galleryPage1.JPG" width="256" height="455">
+  <img src="screenshots/galleryPage2.JPG" width="256" height="455">
+  <img src="screenshots/bookAppointmentPage.JPG" width="256" height="455">
+  <img src="screenshots/aboutUsPage.JPG" width="256" height="455">
   <img src="screenshots/contactUsPage.jpg" width="256" height="455">
   <img src="screenshots/settingsPage.jpg" width="256" height="455">
+  <img src="screenshots/editProfilePAge.JPG" width="256" height="455">
 </p>
