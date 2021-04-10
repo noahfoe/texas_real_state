@@ -139,7 +139,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -164,7 +164,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -188,7 +188,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
