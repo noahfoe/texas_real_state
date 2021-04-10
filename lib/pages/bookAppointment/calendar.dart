@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
-import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 class MyCalendar extends StatefulWidget {
@@ -15,95 +14,20 @@ class MyCalendar extends StatefulWidget {
 }
 
 class _MyCalendarState extends State<MyCalendar> {
-  DateTime _currentDate = DateTime(2021, 3, 22);
-  String _currentMonth = DateFormat.yMMM().format(DateTime(2021, 3, 22));
-  DateTime _targetDateTime = DateTime(2021, 3, 22);
-
-  static Widget _eventIcon = new Container(
-    decoration: new BoxDecoration(
-        color: Colors.blue.shade100,
-        borderRadius: BorderRadius.all(Radius.circular(1000)),
-        border: Border.all(color: Colors.blue, width: 2.0)),
-    child: new Icon(
-      Icons.person,
-      color: Colors.amber,
-    ),
-  );
-  // TODO: get rid of default events make it so user can create event (appointment) themselves
-  EventList<Event> _markedDateMap = new EventList<Event>(
-    events: {
-      new DateTime(2021, 3, 22): [
-        new Event(
-          date: new DateTime(2021, 3, 22),
-          title: 'Event 1',
-          icon: _eventIcon,
-          dot: Container(
-            margin: EdgeInsets.symmetric(horizontal: 1.0),
-            color: Colors.red,
-            height: 5.0,
-            width: 5.0,
-          ),
-        ),
-        new Event(
-          date: new DateTime(2021, 3, 22),
-          title: 'Event 2',
-          icon: _eventIcon,
-        ),
-        new Event(
-          date: new DateTime(2021, 3, 22),
-          title: 'Event 3',
-          icon: _eventIcon,
-        ),
-      ],
-    },
-  );
-
-  @override
-  void initState() {
-    _markedDateMap.add(
-        new DateTime(2021, 3, 25),
-        new Event(
-          date: new DateTime(2021, 3, 25),
-          title: 'Event 5',
-          icon: _eventIcon,
-        ));
-
-    _markedDateMap.add(
-        new DateTime(2021, 3, 27),
-        new Event(
-          date: new DateTime(2021, 3, 27),
-          title: 'Event 4',
-          icon: _eventIcon,
-        ));
-
-    _markedDateMap.addAll(new DateTime(2021, 3, 28), [
-      new Event(
-        date: new DateTime(2021, 3, 28),
-        title: 'Event 1',
-        icon: _eventIcon,
-      ),
-      new Event(
-        date: new DateTime(2021, 3, 28),
-        title: 'Event 2',
-        icon: _eventIcon,
-      ),
-      new Event(
-        date: new DateTime(2021, 3, 28),
-        title: 'Event 3',
-        icon: _eventIcon,
-      ),
-    ]);
-    super.initState();
-  }
+  String _targetDate = "None";
+  String timeSelected = "None";
+  DateTime _currentDate = DateTime.now();
+  String _currentMonth = DateFormat.yMMM().format(DateTime.now());
+  DateTime _targetDateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Customize calender more
     final _calendarCarouselNoHeader = CalendarCarousel<Event>(
       todayBorderColor: Colors.green,
       onDayPressed: (date, events) {
-        this.setState(() => _currentDate = date);
-        events.forEach((event) => print(event.title));
+        this.setState(() {
+          _currentDate = date;
+        });
       },
       daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
@@ -112,7 +36,6 @@ class _MyCalendarState extends State<MyCalendar> {
       ),
       thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
-      markedDatesMap: _markedDateMap,
       height: 300.0,
       selectedDateTime: _currentDate,
       targetDateTime: _targetDateTime,
@@ -133,22 +56,11 @@ class _MyCalendarState extends State<MyCalendar> {
       ),
       minSelectedDate: _currentDate.subtract(Duration(days: 360)),
       maxSelectedDate: _currentDate.add(Duration(days: 360)),
-      prevDaysTextStyle: TextStyle(
-        fontSize: 16,
-        color: Colors.pinkAccent,
-      ),
-      inactiveDaysTextStyle: TextStyle(
-        color: Colors.tealAccent,
-        fontSize: 16,
-      ),
       onCalendarChanged: (DateTime date) {
         this.setState(() {
           _targetDateTime = date;
           _currentMonth = DateFormat.yMMM().format(_targetDateTime);
         });
-      },
-      onDayLongPressed: (DateTime date) {
-        print('long pressed date $date');
       },
     );
 
@@ -216,8 +128,152 @@ class _MyCalendarState extends State<MyCalendar> {
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             child: _calendarCarouselNoHeader,
           ),
+          Container(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    OutlinedButton(
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red),
+                        overlayColor: MaterialStateProperty.all<Color>(
+                            Colors.blueGrey.shade300),
+                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(horizontal: 20)),
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _targetDate = _currentDate.toString();
+                          _targetDate = convertDateTimeDisplay(_targetDate);
+                          timeSelected = "11:00 AM on $_targetDate";
+                        });
+                      },
+                      child: Text("11:00 AM"),
+                    ),
+                    SizedBox(width: 15),
+                    OutlinedButton(
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red),
+                        overlayColor: MaterialStateProperty.all<Color>(
+                            Colors.blueGrey.shade300),
+                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(horizontal: 20)),
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _targetDate = _currentDate.toString();
+                          _targetDate = convertDateTimeDisplay(_targetDate);
+                          timeSelected = "12:30 PM on $_targetDate";
+                        });
+                      },
+                      child: Text("12:30 PM"),
+                    ),
+                    SizedBox(width: 15),
+                    OutlinedButton(
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red),
+                        overlayColor: MaterialStateProperty.all<Color>(
+                            Colors.blueGrey.shade300),
+                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(horizontal: 20)),
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _targetDate = _currentDate.toString();
+                          _targetDate = convertDateTimeDisplay(_targetDate);
+                          timeSelected = "3:00 PM on $_targetDate";
+                        });
+                      },
+                      child: Text("3:00 PM"),
+                    ),
+                  ],
+                ),
+                Divider(height: 20),
+                Text(
+                  "Time Selected: $timeSelected",
+                  style: TextStyle(fontSize: 17),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    _targetDate = _targetDateTime.toString();
+                    _targetDate = convertDateTimeDisplay(_targetDate);
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Mark your calendar!"),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                    "Thank you for booking an appointment with Texas Real State."),
+                                Padding(padding: EdgeInsets.all(10)),
+                                Text(
+                                    "Your appointment is set for $timeSelected"),
+                              ],
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("Close"),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.red),
+                    overlayColor: MaterialStateProperty.all<Color>(
+                        Colors.blueGrey.shade300),
+                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                        EdgeInsets.symmetric(horizontal: 20)),
+                  ),
+                  child: Text(
+                    "Book Appointment",
+                    style: TextStyle(
+                        fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+                  ),
+                ),
+                SizedBox(height: 45),
+                Text("© 2021 Texas Real State"),
+              ],
+            ),
+          ),
         ],
       ),
     ));
+  }
+
+  String convertDateTimeDisplay(String date) {
+    final DateFormat displayFormater = DateFormat('yyyy-MM-dd HH:mm:ss.SSS');
+    final DateFormat serverFormater = DateFormat('MM-dd-yyyy');
+    final DateTime displayDate = displayFormater.parse(date);
+    final String formatted = serverFormater.format(displayDate);
+    return formatted;
   }
 }
