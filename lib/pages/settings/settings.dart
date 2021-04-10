@@ -10,10 +10,16 @@ class MySettingsPage extends StatefulWidget {
   late String email;
   late String firstName;
   late String lastName;
-  MySettingsPage({required this.email, Key? key, required this.firstName, required this.lastName}) : super(key: key);
+  MySettingsPage(
+      {required this.email,
+      Key? key,
+      required this.firstName,
+      required this.lastName})
+      : super(key: key);
 
   @override
-  _MySettingsPageState createState() => _MySettingsPageState(email: email, firstName: firstName, lastName: lastName);
+  _MySettingsPageState createState() => _MySettingsPageState(
+      email: email, firstName: firstName, lastName: lastName);
 }
 
 class _MySettingsPageState extends State<MySettingsPage> {
@@ -22,15 +28,14 @@ class _MySettingsPageState extends State<MySettingsPage> {
   late String lastName;
   late String checkEmail;
   final auth = FirebaseAuth.instance;
-  _MySettingsPageState({required this.email, required this.firstName, required this.lastName});
+  _MySettingsPageState(
+      {required this.email, required this.firstName, required this.lastName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(
-        email: email, firstName: firstName, lastName: lastName
-      ),
+      drawer: MyDrawer(email: email, firstName: firstName, lastName: lastName),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: Column(
@@ -74,9 +79,8 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             buildChangePasswordSettingRow(context, "Change password"),
             buildProfileSettingsRow(context, "Profile settings"),
-            // Make these last two settings work
-            buildAccountSettingRow(context, "Language"),
-            buildAccountSettingRow(context, "Privacy and security"),
+            buildLanguageSettingRow(context, "Language"),
+            buildPrivacySettingRow(context, "Privacy and security"),
             SizedBox(
               height: 40,
             ),
@@ -168,7 +172,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
     );
   }
 
-  GestureDetector buildAccountSettingRow(BuildContext context, String title) {
+  GestureDetector buildPrivacySettingRow(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
         showDialog(
@@ -179,9 +183,55 @@ class _MySettingsPageState extends State<MySettingsPage> {
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Option 1"),
-                    Text("Option 2"),
-                    Text("Option 3"),
+                    Text("There are no privacy and security settings yet"),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Close"),
+                  ),
+                ],
+              );
+            });
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[600]),
+            ),
+            Icon(
+              Icons.arrow_forward_rounded,
+              color: Colors.grey,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector buildLanguageSettingRow(BuildContext context, String title) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(title),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                        "Texas Real State is currently only supported in English"),
                   ],
                 ),
                 actions: [
@@ -275,8 +325,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             context,
             MaterialPageRoute(
                 builder: (context) => new EditProfilePage(
-                      email: email, firstName: firstName, lastName: lastName
-                    )));
+                    email: email, firstName: firstName, lastName: lastName)));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
