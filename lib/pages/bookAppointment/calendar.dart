@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
-import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 class MyCalendar extends StatefulWidget {
@@ -140,7 +139,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -165,7 +164,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -189,7 +188,7 @@ class _MyCalendarState extends State<MyCalendar> {
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
+                            MaterialStateProperty.all<Color>(Colors.redAccent),
                         overlayColor: MaterialStateProperty.all<Color>(
                             Colors.blueGrey.shade300),
                         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
