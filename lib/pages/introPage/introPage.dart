@@ -17,8 +17,12 @@ class IntroPage extends StatelessWidget {
       PageViewModel(
         title: "Welcome to Texas Real State",
         image: Image.network(
-            'https://clipart.info/images/ccovers/1495751366Yellow-House-PNG-Clip-Art.png',
-            scale: 8),
+          'https://clipart.info/images/ccovers/1495751366Yellow-House-PNG-Clip-Art.png',
+          scale: 8,
+          loadingBuilder: (context, child, progress) {
+            return progress == null ? child : CircularProgressIndicator();
+          },
+        ),
         body: 'An app created for students by students',
         footer: Text('@Texas Real State'),
       ),
@@ -27,6 +31,9 @@ class IntroPage extends StatelessWidget {
         image: Image.network(
           'https://www.jing.fm/clipimg/full/68-680340_gps-locator-map-location-navigation-direction-transparent-background.png',
           scale: 3,
+          loadingBuilder: (context, child, progress) {
+            return progress == null ? child : CircularProgressIndicator();
+          },
         ),
         body:
             'We use Google Maps and will need your location services enabled, but don\'t worry, we do not collect any of this data',
@@ -37,6 +44,9 @@ class IntroPage extends StatelessWidget {
         image: Image.network(
           'https://www.pinclipart.com/picdir/big/8-88292_apartment-complex-clipart-apartment-house-apartment-building-clipart.png',
           scale: 10,
+          loadingBuilder: (context, child, progress) {
+            return progress == null ? child : CircularProgressIndicator();
+          },
         ),
         body:
             'Find Apartments near Texas State University and get started to today!',
