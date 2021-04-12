@@ -168,7 +168,13 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
       },
       child: Column(
         children: [
-          Image.network(url, scale: 1),
+          Image.network(
+            url,
+            scale: 1,
+            loadingBuilder: (context, child, progress) {
+              return progress == null ? child : LinearProgressIndicator();
+            },
+          ),
           SizedBox(
             height: 5,
           ),

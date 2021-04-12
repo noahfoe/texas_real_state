@@ -73,7 +73,6 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           '    Texas Real State is developed by Texas State Students with Flutter. Founded in 2021.',
                           style: TextStyle(fontSize: 20, color: Colors.black),
                         ),
-
                         SizedBox(
                           height: 15,
                         ),
@@ -93,7 +92,6 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         SizedBox(
                           height: 10,
                         ),
-                        // Meet the team part (Links to GitHub accounts)
                         Row(
                           children: [
                             SizedBox(
@@ -130,6 +128,12 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                           Image.network(
                                             "https://tinyurl.com/ym9nhufb",
                                             scale: 3,
+                                            loadingBuilder:
+                                                (context, child, progress) {
+                                              return progress == null
+                                                  ? child
+                                                  : LinearProgressIndicator();
+                                            },
                                           ),
                                           Padding(
                                             padding: EdgeInsets.only(right: 15),
@@ -153,6 +157,12 @@ class _MyAboutPageState extends State<MyAboutPage> {
                                           Image.network(
                                             'https://tinyurl.com/dx2tfzyc',
                                             scale: 3,
+                                            loadingBuilder:
+                                                (context, child, progress) {
+                                              return progress == null
+                                                  ? child
+                                                  : LinearProgressIndicator();
+                                            },
                                           ),
                                           Padding(
                                               padding:

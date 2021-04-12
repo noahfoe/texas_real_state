@@ -72,9 +72,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 child: Stack(
                   children: [
                     CircleAvatar(
-                        radius: 60,
-                        backgroundImage:
-                            NetworkImage("https://tinyurl.com/6casap63")),
+                      radius: 60,
+                      backgroundImage: AssetImage("img/defaultPicture.jpg"),
+                    ),
                     Positioned(
                       bottom: 0,
                       right: 0,
@@ -107,12 +107,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Change to OutlinedButton
                   OutlinedButton(
-                    //padding: EdgeInsets.symmetric(horizontal: 50),
-                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     onPressed: () {
-                      // return to settings page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => new MySettingsPage(
+                              email: email,
+                              firstName: firstName,
+                              lastName: lastName),
+                        ),
+                      );
                     },
                     child: Text("CANCEL",
                         style: TextStyle(
@@ -120,15 +125,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                  // Change to ElevatedButton
                   ElevatedButton(
                     onPressed: () {
-                      // save information
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text("Info has been saved"),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text("Close"),
+                                ),
+                              ],
+                            );
+                          });
                     },
-                    //color: Colors.red,
-                    //padding: EdgeInsets.symmetric(horizontal: 50),
-                    //elevation: 2,
-                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     child: Text(
                       "SAVE",
                       style: TextStyle(

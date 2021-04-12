@@ -138,7 +138,28 @@ class _MyContactPageState extends State<MyContactPage> {
                             borderRadius: BorderRadius.circular(20))),
                   ),
                   onPressed: () {
-                    // send info to texasrealstate@gmail.com
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title:
+                                Text("Email sent to TexasRealState@gmail.com"),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Thank you for sending us your feedback."),
+                              ],
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("Close"),
+                              ),
+                            ],
+                          );
+                        });
                   },
                   child: Text(
                     "SUBMIT",
