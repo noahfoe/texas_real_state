@@ -22,7 +22,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final picker = ImagePicker();
-  late File? pickedImage;
+  late File pickedImage = File("img/defaultPicture.jpg");
   bool showPassword = false;
   late String email;
   late String firstName;
@@ -35,12 +35,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Colors.red,
         elevation: 1,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.red,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
@@ -71,9 +71,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Center(
                 child: Stack(
                   children: [
+                    // TODO: fix default image
                     CircleAvatar(
                       radius: 60,
-                      backgroundImage: AssetImage("img/defaultPicture.jpg"),
+                      child: ClipOval(
+                        child: Image.file(
+                          pickedImage,
+                          fit: BoxFit.cover,
+                          width: 120,
+                          height: 120,
+                        ),
+                      ),
                     ),
                     Positioned(
                       bottom: 0,
@@ -135,6 +143,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               actions: [
                                 TextButton(
                                   onPressed: () {
+                                    // TODO: Use state to save profile picture
                                     Navigator.of(context).pop();
                                   },
                                   child: Text("Close"),
@@ -187,12 +196,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   _loadPicker(ImageSource source) async {
-    final picked = await picker.getImage(source: source);
-    if (picked != null) {
-      setState(() {
-        pickedImage = File(picked.path);
-      });
-    }
+    final pickedFile = await picker.getImage(source: source);
+
+    setState(() {
+      if (pickedFile != null) {
+        pickedImage = File(pickedFile.path);
+      }
+    });
   }
 
   Widget buildTextField(
