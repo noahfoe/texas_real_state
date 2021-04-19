@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:real_texas_state/components/my_appBar.dart';
 import 'package:real_texas_state/components/my_drawer.dart';
+import 'package:real_texas_state/components/themes.dart';
 import 'package:real_texas_state/pages/loginPage/login.dart';
 import 'package:real_texas_state/pages/settings/editProfile.dart';
 
@@ -23,6 +25,7 @@ class MySettingsPage extends StatefulWidget {
 }
 
 class _MySettingsPageState extends State<MySettingsPage> {
+  bool status = false;
   late String email;
   late String firstName;
   late String lastName;
@@ -84,6 +87,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             SizedBox(
               height: 40,
             ),
+
             Row(
               children: [
                 Icon(
@@ -107,7 +111,39 @@ class _MySettingsPageState extends State<MySettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildNotificationSettingRow("Dark Mode", false),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Dark Mode",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                Transform.scale(
+                  scale: 0.5,
+                  alignment: Alignment.centerRight,
+                  child: FlutterSwitch(
+                    width: 125.0,
+                    height: 55.0,
+                    valueFontSize: 25.0,
+                    toggleSize: 45.0,
+                    value: status,
+                    borderRadius: 30.0,
+                    padding: 8.0,
+                    showOnOff: true,
+                    onToggle: (val) {
+                      setState(() {
+                        status = val;
+                        currentTheme.toggleTheme();
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
             SizedBox(
               height: 100,
             ),
@@ -141,34 +177,6 @@ class _MySettingsPageState extends State<MySettingsPage> {
           ],
         ),
       ),
-    );
-  }
-
-  Row buildNotificationSettingRow(String title, bool isActive) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey[600]),
-        ),
-        Transform.scale(
-          scale: 0.7,
-          child: CupertinoSwitch(
-            value: isActive,
-            activeColor: Colors.green,
-            trackColor: Colors.grey[400],
-            onChanged: (bool value) {
-              setState(() {
-                isActive = value;
-              });
-            },
-          ),
-        )
-      ],
     );
   }
 
@@ -211,7 +219,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             Icon(
               Icons.arrow_forward_rounded,
-              color: Colors.grey,
+              color: Colors.red,
             )
           ],
         ),
@@ -259,7 +267,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             Icon(
               Icons.arrow_forward_rounded,
-              color: Colors.grey,
+              color: Colors.red,
             )
           ],
         ),
@@ -310,7 +318,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
             ),
             Icon(
               Icons.arrow_forward_rounded,
-              color: Colors.grey,
+              color: Colors.red,
             )
           ],
         ),
@@ -339,10 +347,7 @@ class _MySettingsPageState extends State<MySettingsPage> {
                   fontWeight: FontWeight.w500,
                   color: Colors.grey[600]),
             ),
-            Icon(
-              Icons.arrow_forward_rounded,
-              color: Colors.grey,
-            )
+            Icon(Icons.arrow_forward_rounded, color: Colors.red)
           ],
         ),
       ),

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:real_texas_state/components/maps/location/location_provider.dart';
 import 'package:real_texas_state/pages/home/home.dart';
 
+import 'components/themes.dart';
+
 class MyApp extends StatelessWidget {
   // This widget is the root of the application.
   late String email;
@@ -23,11 +25,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Texas Real State',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-          accentColor: Colors.blueAccent,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: CustomTheme.lightTheme,
+        darkTheme: CustomTheme.darkTheme,
+        themeMode: currentTheme.currentTheme,
         home:
             MyHomePage(email: email, firstName: firstName, lastName: lastName),
         debugShowCheckedModeBanner: false,

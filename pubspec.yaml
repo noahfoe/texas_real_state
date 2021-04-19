@@ -31,7 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0
   introduction_screen: ^2.0.0
-  google_maps_flutter: ^2.0.1
+  google_maps_flutter: ^2.0.3
   location: ^4.1.1
   material_floating_search_bar: ^0.3.3
   flutter_calendar_carousel: ^2.0.0
@@ -42,6 +42,7 @@ dependencies:
   url_launcher: ^6.0.3
   image_picker: ^0.7.4
   image_cropper: ^1.4.0
+  flutter_switch: ^0.3.1
   dcdg: ^3.0.0
   
 dev_dependencies:
