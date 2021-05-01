@@ -1,14 +1,19 @@
-# texas_real_state
-* A Flutter project created by 3 other Texas State students and myself for our Software Engineering Project class.
-* This is a real estate app called Texas Real State, that helps Texas State students find apartments in San Marcos.
+# Texas Real State
+* A Flutter app created by 3 other Texas State students and myself for our Software Engineering Project class.
+* This app helps incoming and current Texas State Students find apartments near Texas State University.
 
-# What We Learned
+## What We Learned
 * Teamwork/Collaboration
 * Flutter
-* Riverpod and Provider for State Management
+* Riverpod & Provider for State Management
 * Google API's for Maps
 
-# Screenshots
+## State Diagram
+<p align="center">
+  <img src="StateChart.jpg" width="800" height="400">
+</p>
+
+## Screenshots
 <p align="center">
   <img src="screenshots/loginPage.jpg" width="256" height="455">
   <img src="screenshots/homePage.JPG" width="256" height="455">
