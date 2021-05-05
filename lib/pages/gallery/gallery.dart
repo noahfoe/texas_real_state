@@ -56,6 +56,7 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
   }
 
   Container _buildListings() {
+    Color starColor = Colors.black54;
     return Container(
       height: MediaQuery.of(context).size.height - 130,
       width: MediaQuery.of(context).size.width,
@@ -83,7 +84,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
                   "4 beds/baths",
                   "Gym/Pool/Parking avaliable",
                   "650 River Rd",
-                  "San Marcos, TX 78666"),
+                  "San Marcos, TX 78666",
+                  starColor),
             ],
           ),
           Divider(
@@ -99,7 +101,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "1-2 beds/baths",
               "Gym/Pool/Parking avaliable",
               "1610 N. Interstate 35",
-              "San Marcos, TX 78666"),
+              "San Marcos, TX 78666",
+              starColor),
           Divider(
             height: 25,
             thickness: 1,
@@ -113,7 +116,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "4 beds/baths",
               "Gym/Pool/Parking avaliable",
               "401 Fredericksburg St.",
-              "San Marcos, TX 78666"),
+              "San Marcos, TX 78666",
+              starColor),
           Divider(
             height: 25,
             thickness: 1,
@@ -127,7 +131,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "3-6 beds/baths",
               "Gym/Pool/Parking avaliable",
               "1415 Craddock Ave.",
-              "San Marcos, TX 78666"),
+              "San Marcos, TX 78666",
+              starColor),
           Divider(
             height: 25,
             thickness: 1,
@@ -141,7 +146,8 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
               "1-4 beds/baths",
               "Gym/Pool/Parking avaliable",
               "210 N. Edward Gary St.",
-              "San Marcos, TX 78666"),
+              "San Marcos, TX 78666",
+              starColor),
           Divider(
             height: 25,
             thickness: 1,
@@ -161,19 +167,36 @@ class _MyGalleryPageState extends State<MyGalleryPage> {
       String beds,
       String amenities,
       String address,
-      String city) {
+      String city,
+      Color color) {
     return GestureDetector(
       onTap: () {
         _launchWebsite(websiteUrl);
       },
       child: Column(
         children: [
-          Image.network(
-            url,
-            scale: 1,
-            loadingBuilder: (context, child, progress) {
-              return progress == null ? child : LinearProgressIndicator();
-            },
+          Stack(
+            children: [
+              Image.network(
+                url,
+                scale: 1,
+                loadingBuilder: (context, child, progress) {
+                  return progress == null ? child : LinearProgressIndicator();
+                },
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    color == Colors.black54
+                        ? color = Colors.yellow
+                        : color = Colors.black54;
+                  });
+                },
+                child: Container(
+                  child: Icon(Icons.star, size: 75, color: color),
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: 5,
